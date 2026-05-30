@@ -1,0 +1,26 @@
+@use "./variables" as *;
+@font-face {
+  font-family: "Almarai";
+  src: url("@/assets/fonts/Almarai-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Almarai";
+  src: url("@/assets/fonts/Almarai-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Almarai", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  background: $main-gradient;
+  color: $main-white-color;
+}

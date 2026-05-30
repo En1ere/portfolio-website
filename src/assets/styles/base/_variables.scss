@@ -1,0 +1,23 @@
+$main-white-color: #E7E0E0;
+
+$main-gradient: radial-gradient(
+    ellipse at center bottom,
+    #1F1A12 0%,
+    #000000 100%
+);
+
+$color-bg: #0f172a;
+$color-bg-secondary: #111827;
+$color-text: #e5e7eb;
+$color-text-muted: #9ca3af;
+$color-primary: #6366f1;
+
+$container-width: 1200px;
+$container-padding: 16px;
+
+$transition-base: 0.2s ease-in-out;
+
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;

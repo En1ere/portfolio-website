@@ -1,0 +1,14 @@
+<script setup lang="ts">
+
+</script>
+
+<template>
+  <section>
+    <h1>404</h1>
+    <p>Страница не найдена</p>
+  </section>
+</template>
+
+<style scoped lang="scss">
+
+</style>
