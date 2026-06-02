@@ -1,5 +1,11 @@
 import type { RouteRecordRaw } from "vue-router";
 
+export interface INavRoute {
+  name: string
+  path: string
+  label: string
+}
+
 export const routes: RouteRecordRaw[] = [
   {
     path: "/",
@@ -10,16 +16,7 @@ export const routes: RouteRecordRaw[] = [
     name: "home",
     component: () => import("@/pages/HomePage.vue"),
     meta: {
-      label: "Home",
-      showInNav: true,
-    },
-  },
-  {
-    path: "/about",
-    name: "about",
-    component: () => import("@/pages/AboutPage.vue"),
-    meta: {
-      label: "About",
+      label: "home",
       showInNav: true,
     },
   },
@@ -28,16 +25,7 @@ export const routes: RouteRecordRaw[] = [
     name: "projects",
     component: () => import("@/pages/ProjectsPage.vue"),
     meta: {
-      label: "Projects",
-      showInNav: true,
-    },
-  },
-  {
-    path: "/contacts",
-    name: "contacts",
-    component: () => import("@/pages/ContactsPage.vue"),
-    meta: {
-      label: "Contacts",
+      label: "projects",
       showInNav: true,
     },
   },
@@ -51,7 +39,7 @@ export const routes: RouteRecordRaw[] = [
   },
 ];
 
-export const navItems = routes
+export const navItems: INavRoute[] = routes
   .filter((route) => route.meta?.showInNav && route.name)
   .map((route) => ({
     name: route.name as string,

@@ -3,10 +3,9 @@
 </script>
 
 <template>
-  <section>
-    <h1>About</h1>
-    <p>Информация обо мне</p>
-  </section>
+  <p>
+    {{ $t('terms_text')}}
+  </p>
 </template>
 
 <style scoped lang="scss">

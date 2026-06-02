@@ -1,23 +1,21 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { useRoute } from "vue-router";
-import { navItems } from "@/router/routes";
+import {useRoute} from "vue-router";
+import {type INavRoute, navItems} from "@/router/routes";
 
 const route = useRoute();
 
-const navRoutes = computed(() =>
-  navItems.filter((item) => item.path !== route.path),
-);
+const isCurrent = (item:INavRoute) => item.path === route.path;
 </script>
 
 <template>
   <nav class="navigation">
     <RouterLink
-      v-for="item in navRoutes"
+      v-for="item in navItems"
       :key="item.name"
       :to="item.path"
+      :class="['navigation__item', {active: isCurrent(item)}]"
     >
-      {{ item.label }}
+      {{ $t(item.label) }}
     </RouterLink>
   </nav>
 </template>
@@ -25,8 +23,19 @@ const navRoutes = computed(() =>
 <style lang="scss" scoped>
   .navigation {
     display: flex;
-    flex-direction: column;
-    gap: 18px;
-    font-size: 24px;
+    gap: 8px;
+    font-size: 16px;
+
+    @media (min-width: $tabletBreakpoint) {
+      font-size: $Article-U;
+      gap: 16px;
+    }
+
+    &__item {
+      transition: all 0.2s;
+      &.active {
+        color: $brand-color;
+      }
+    }
   }
 </style>

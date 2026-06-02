@@ -1,0 +1,42 @@
+<script setup lang="ts">
+import { computed } from 'vue';
+import IconMail from "@/components/UI/icons/IconMail.vue";
+import IconGeo from "@/components/UI/icons/IconGeo.vue";
+import IconVk from "@/components/UI/icons/IconVk.vue";
+import IconTg from "@/components/UI/icons/IconTg.vue";
+import IconGit from "@/components/UI/icons/IconGit.vue";
+import IconCase from "@/components/UI/icons/IconCase.vue";
+import IconDownload from "@/components/UI/icons/IconDownload.vue";
+
+const icons = {
+  IconMail,
+  IconGeo,
+  IconVk,
+  IconTg,
+  IconGit,
+  IconCase,
+  IconDownload
+} as const;
+export type IconName = keyof typeof icons
+
+interface SvgIconProps {
+  name: IconName;
+  size?: number | string;
+  width?: number | string;
+  height?: number | string;
+  color?: string;
+  class?: string;
+}
+
+const props = defineProps<SvgIconProps>();
+
+const component = computed(() => icons[props.name]);
+</script>
+
+<template>
+  <Component
+    :is="component"
+    v-if="component"
+    v-bind="props"
+  />
+</template>

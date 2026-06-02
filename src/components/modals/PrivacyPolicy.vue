@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <section>
-    <h1>Contacts</h1>
-  </section>
+  <p>
+    {{ $t('privacy_text')}}
+  </p>
 </template>
 
 <style scoped lang="scss">
