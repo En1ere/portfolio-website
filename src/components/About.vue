@@ -58,6 +58,7 @@
       }
     }
     & p {
+      position: relative;
       margin: 32px 0 0;
       background: $color-bg;
       border-radius: 40px;
@@ -72,6 +73,23 @@
       }
       @media (min-width: $desktopBreakpoint) {
         max-width: 880px;
+      }
+
+      &::before {
+        content: '<p>';
+        position: absolute;
+        color: $brand-color-second;
+        font-size: $Para-U;
+        top: 24px;
+        left: 24px;
+      }
+      &::after {
+        content: '</p>';
+        position: absolute;
+        color: $brand-color-second;
+        font-size: $Para-U;
+        bottom: 24px;
+        left: 24px;
       }
     }
 

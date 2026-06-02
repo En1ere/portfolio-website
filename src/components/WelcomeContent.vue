@@ -19,7 +19,7 @@ const {locale} = useLocale()
       <div class="wrapper">
         <div class="text-content">
           <h1 class="text-content__title">
-            {{ locale === 'en' ? `${$t('hey')} ` : null }}{{ $t('name_is') }}<span class="text-content__title_name letter-left">{{$t('name')}}</span>,<br/>{{$t('job_title')}}
+            {{ locale === 'en' ? "Hey " : null }}{{ $t('name_is') }}<span class="text-content__title_name letter-left">{{$t('name')}}</span>,<br/>{{$t('job_title')}}
           </h1>
           <p class="text-content__text">
             {{ $t('main_subtitle') }}

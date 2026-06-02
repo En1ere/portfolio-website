@@ -1,20 +1,21 @@
 <script setup lang="ts">
 
+import UIBlock from "@/components/UI/blocks/UIBlock.vue";
+import {skills} from "@/types/constants/skills.ts";
 </script>
 
 <template>
   <div class="skills-wrapper">
     <section class="skills">
       <h1 class="skills__title">
-        {{ $t('skills') }}
-        <div class="line">
-          <div class="dot" />
-          <div class="dot" />
-        </div>
+        {{ $t('skills_title') }}
       </h1>
       <span class="skills__subtitle">
         {{ $t('skills_subtitle') }}
       </span>
+      <div class="blocks-wrapper">
+        <UIBlock v-for="skill in skills" :key="skill.id" :skill="skill" />
+      </div>
     </section>
   </div>
 </template>
@@ -46,33 +47,51 @@
       position: relative;
       font-size: $H1-U;
       color: $brand-color;
+      padding-bottom: 16px;
 
-      & .line {
+      &::before {
+        content: '';
         position: absolute;
-        background: $brand-color;
-        height: 2px;
+        left: 0;
+        bottom: 0;
         width: 160px;
-        bottom: -16px;
-        left: 0;
-      }
-      & .dot {
-        position: absolute;
+        height: 2px;
         background: $brand-color;
-        border-radius: 50%;
-        border: 0;
-        height: 12px;
-        width: 12px;
-        bottom: -5px;
-        left: 0;
 
-        &:last-child {
-          right: 0;
-          left: unset;
+        [lang^='ru'] & {
+          width: 268px;
+        }
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: $brand-color;
+        box-shadow: 148px 0 0 $brand-color;
+
+        [lang^='ru'] & {
+          box-shadow: 256px 0 0 $brand-color;
         }
       }
     }
     &__subtitle {
       margin: 32px 0 64px;
+      text-align: center;
+    }
+  }
+  .blocks-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    @media (min-width: $tabletBreakpoint) {
+      flex-direction: row;
     }
   }
 </style>

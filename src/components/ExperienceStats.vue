@@ -7,10 +7,10 @@
     <div class="experience">
       <div class="experience__item">
         <span class="experience__item_number">
-          15
+          57
         </span>
         <span>
-          Development Tools
+          {{ $t('stats_projects') }}
         </span>
       </div>
       <div class="experience__item">

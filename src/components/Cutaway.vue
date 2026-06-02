@@ -9,7 +9,7 @@ import {tags} from "@/types/constants/tags.ts";
   <div class="cutaway">
     <div class="profile">
       <div class="profile__img-wrapper">
-        <img src="" alt="">
+        <img src="@/assets/img/about/pic.jpg" alt="">
       </div>
       <span class="profile__name">
         {{ $t('name_full') }}
@@ -53,9 +53,13 @@ import {tags} from "@/types/constants/tags.ts";
       </div>
     </div>
     <div class="download">
-      <button class="download__button">
+      <a
+        href="/files/resume.pdf"
+        download="Alexander-Frontend-Developer-CV.pdf"
+        class="download__button"
+      >
         <span>{{ $t('download_cv') }}</span> <Icon name="IconDownload" />
-      </button>
+      </a>
     </div>
   </div>
 </template>
@@ -86,6 +90,7 @@ import {tags} from "@/types/constants/tags.ts";
       border-radius: 50%;
       border: 3px solid $brand-color;
       margin: 0 0 16px 0;
+      overflow: hidden;
     }
     &__name {
       font-family: "Ubuntu-Medium";

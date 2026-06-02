@@ -7,6 +7,10 @@ import IconTg from "@/components/UI/icons/IconTg.vue";
 import IconGit from "@/components/UI/icons/IconGit.vue";
 import IconCase from "@/components/UI/icons/IconCase.vue";
 import IconDownload from "@/components/UI/icons/IconDownload.vue";
+import IconPC from "@/components/UI/icons/IconPC.vue";
+import IconBack from "@/components/UI/icons/IconBack.vue";
+import IconArrowLeft from "@/components/UI/icons/IconArrowLeft.vue";
+import IconArrowRight from "@/components/UI/icons/IconArrowRight.vue";
 
 const icons = {
   IconMail,
@@ -15,7 +19,11 @@ const icons = {
   IconTg,
   IconGit,
   IconCase,
-  IconDownload
+  IconDownload,
+  IconPC,
+  IconBack,
+  IconArrowLeft,
+  IconArrowRight
 } as const;
 export type IconName = keyof typeof icons
 

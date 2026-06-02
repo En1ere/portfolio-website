@@ -13,7 +13,7 @@
         {{ $t('name_full') }}
       </div>
       <div class="header__nav">
-        <Navigation />
+<!--        <Navigation />-->
         <LangSelector />
         <a class="header__git" target="_blank" :href="socials.git.link">
           <Icon :name="socials.git.icon" />
