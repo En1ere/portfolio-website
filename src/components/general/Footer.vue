@@ -18,7 +18,7 @@
           class="footer__social-item"
           v-for="social in socials"
           :key="social.id"
-          :href="social.link"
+          :href="social.id === 2 ? `mailto:${social.link}` : social.link"
           target="_blank"
         >
           <Icon color="#292F36" :name="social.icon" />
