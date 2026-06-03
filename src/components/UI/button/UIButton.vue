@@ -3,13 +3,10 @@
 type StyleVariants = 'primary' | 'secondary' | 'empty';
 type SizeVariants = 'xl' | 'm' | 's';
 
-const { variant, size } = withDefaults(defineProps<{
+const { variant = 'primary', size = 'm' } = defineProps<{
   variant?: StyleVariants;
   size?: SizeVariants
-}>(), {
-  variant: 'primary',
-  size: 'm',
-});
+}>()
 </script>
 
 <template>
