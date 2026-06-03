@@ -1,0 +1,1 @@
+import{_ as n,e as o,b as t,q as r}from"./index-Dxt26rGd.js";const s={};function c(a,e){return r(),o("section",null,[...e[0]||(e[0]=[t("h1",null,"Projects",-1),t("p",null,"Список проектов",-1)])])}const _=n(s,[["render",c]]);export{_ as default};
