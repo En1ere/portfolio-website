@@ -1,7 +1,7 @@
 import { useI18n } from 'vue-i18n';
 
 export const useLocale = () => {
-  const { locale, availableLocales } = useI18n({ useScope: 'global' });
+  const { locale, availableLocales, t } = useI18n({ useScope: 'global' });
 
   const setLocale = (value: 'ru' | 'en') => {
     locale.value = value;
@@ -18,6 +18,7 @@ export const useLocale = () => {
     locale,
     setLocale,
     toggleLocale,
-    getAvailableLocales
+    getAvailableLocales,
+    t
   };
 };

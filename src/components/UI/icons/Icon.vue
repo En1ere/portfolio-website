@@ -11,6 +11,9 @@ import IconPC from "@/components/UI/icons/IconPC.vue";
 import IconBack from "@/components/UI/icons/IconBack.vue";
 import IconArrowLeft from "@/components/UI/icons/IconArrowLeft.vue";
 import IconArrowRight from "@/components/UI/icons/IconArrowRight.vue";
+import IconSearch from "@/components/UI/icons/IconSearch.vue";
+import IconArrowDown from "@/components/UI/icons/IconArrowDown.vue";
+import type {TClassValue} from "@/types/style.ts";
 
 const icons = {
   IconMail,
@@ -23,7 +26,9 @@ const icons = {
   IconPC,
   IconBack,
   IconArrowLeft,
-  IconArrowRight
+  IconArrowRight,
+  IconSearch,
+  IconArrowDown
 } as const;
 export type IconName = keyof typeof icons
 
@@ -33,7 +38,7 @@ interface SvgIconProps {
   width?: number | string;
   height?: number | string;
   color?: string;
-  class?: string;
+  class?: TClassValue;
 }
 
 const props = defineProps<SvgIconProps>();

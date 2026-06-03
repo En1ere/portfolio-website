@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import Navigation from "@/components/general/Navigation.vue";
+  // import Navigation from "@/components/general/Navigation.vue";
   import Icon from "@/components/UI/icons/Icon.vue";
   import {socials} from "@/types/constants/socials.ts";
   import LangSelector from "@/components/general/LangSelector.vue";
