@@ -146,11 +146,20 @@ const swiperOptions = {
 
     &__link {
       position: absolute;
-      top: 40px;
-      right: 116px;
+      top: 8px;
+      right: 40px;
       color: $brand-color;
       border-bottom: 2px solid white;
       padding: 0 0 4px 0;
+      @media (min-width: $tabletBreakpoint) {
+        top: 24px;
+        right: 92px;
+      }
+      @media (min-width: $desktopBreakpoint) {
+        top: 40px;
+        right: 116px;
+      }
+
       &::after {
         content: "";
         display: inline-block;
