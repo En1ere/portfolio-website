@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Icon, {type IconName} from "@/components/UI/icons/Icon.vue";
+import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
 
   type SkillProp = {
     id: number,
@@ -13,7 +13,10 @@ import Icon, {type IconName} from "@/components/UI/icons/Icon.vue";
 
 <template>
   <div class="UI-block">
-    <Icon class="UI-block__icon" :name="skill.icon as IconName" />
+    <Icon
+      class="UI-block__icon"
+      :name="skill.icon as IconName"
+    />
     <span class="UI-block__title">
       {{ skill.title }}
     </span>
@@ -39,16 +42,19 @@ import Icon, {type IconName} from "@/components/UI/icons/Icon.vue";
       width: 32px;
       height: 32px;
     }
+
     &__title, &__items {
       margin: 8px 0 0;
       color: $color-bg;
       white-space: nowrap;
     }
+
     &__title {
-      font-size: $Article-U;
+      font-size: $article-u;
     }
+
     &__items {
-      font-size: $Para-U;
+      font-size: $para-u;
     }
   }
 </style>

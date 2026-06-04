@@ -42,10 +42,12 @@ const { variant = 'primary', size = 'm' } = defineProps<{
       border: 2px solid $brand-color-second;
     }
   }
+
   &.secondary {
     background: $color-bg;
     border: 2px solid $brand-color;
   }
+
   &.empty {
     background: transparent;
     border: 0;
@@ -56,7 +58,7 @@ const { variant = 'primary', size = 'm' } = defineProps<{
     min-height: 18px;
     padding: 2px 6px;
 
-    @media (min-width: $tabletBreakpoint) {
+    @media (min-width: $tablet-breakpoint) {
       min-height: 36px;
       padding: 4px 16px;
     }

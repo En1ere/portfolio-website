@@ -14,22 +14,28 @@ type SheetRow = {
 
 type LangMap = Record<string, string[]>;
 type FlatLocaleMessages = Record<string, string>;
-type NestedMessages = Record<string, unknown>;
+type NestedMessages = {
+  [key: string]: string | NestedMessages;
+};
+
+function isNestedMessages(value: unknown): value is NestedMessages {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
 
 const GOOGLE_SHEET_ID = process.env.GOOGLE_SHEET_ID;
 const GOOGLE_SERVICE_ACCOUNT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
 const GOOGLE_PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n');
 
 function log(message: string) {
-  console.log(`[i18n:pull] ${message}`);
+  console.warn(`[i18n:pull] ${message}`);
 }
 
 function ensureEnv() {
   const missing: string[] = [];
 
-  if (!GOOGLE_SHEET_ID) missing.push('GOOGLE_SHEET_ID');
-  if (!GOOGLE_SERVICE_ACCOUNT_EMAIL) missing.push('GOOGLE_SERVICE_ACCOUNT_EMAIL');
-  if (!GOOGLE_PRIVATE_KEY) missing.push('GOOGLE_PRIVATE_KEY');
+  if (!GOOGLE_SHEET_ID) {missing.push('GOOGLE_SHEET_ID');}
+  if (!GOOGLE_SERVICE_ACCOUNT_EMAIL) {missing.push('GOOGLE_SERVICE_ACCOUNT_EMAIL');}
+  if (!GOOGLE_PRIVATE_KEY) {missing.push('GOOGLE_PRIVATE_KEY');}
 
   if (missing.length > 0) {
     throw new Error(`Missing required env variables: ${missing.join(', ')}`);
@@ -60,17 +66,21 @@ function getLocaleHeaders(headers: string[]): string[] {
   return headers.filter((header) => !REQUIRED_HEADERS.includes(header as (typeof REQUIRED_HEADERS)[number]));
 }
 
-function setNestedValue(target: Record<string, any>, key: string, value: string) {
+function setNestedValue(target: NestedMessages, key: string, value: string) {
   const parts = key.split('.').map((part) => part.trim()).filter(Boolean);
 
   if (parts.length === 0) {
     return;
   }
 
-  let current = target;
+  let current: NestedMessages = target;
 
   for (let i = 0; i < parts.length; i++) {
     const part = parts[i];
+    if (!part) {
+      return;
+    }
+
     const isLast = i === parts.length - 1;
 
     if (isLast) {
@@ -80,20 +90,31 @@ function setNestedValue(target: Record<string, any>, key: string, value: string)
 
     const existingValue = current[part];
 
-    if (existingValue == null) {
-      current[part] = {};
-    } else if (typeof existingValue !== 'object' || Array.isArray(existingValue)) {
+    if (existingValue === undefined) {
+      const next: NestedMessages = {};
+      current[part] = next;
+      current = next;
+      continue;
+    }
+
+    if (typeof existingValue === 'string') {
       throw new Error(
-        `Cannot create nested key "${key}" because "${parts.slice(0, i + 1).join('.')}" is already a string value`
+        `Cannot create nested key "${key}" because "${parts.slice(0, i + 1).join('.')}" is already a string value`,
       );
     }
 
-    current = current[part];
+    if (!isNestedMessages(existingValue)) {
+      throw new Error(
+        `Cannot create nested key "${key}" because "${parts.slice(0, i + 1).join('.')}" is not an object`,
+      );
+    }
+
+    current = existingValue;
   }
 }
 
 function toNestedMessages(flatMap: FlatLocaleMessages): NestedMessages {
-  const result: Record<string, any> = {};
+  const result: NestedMessages = {};
 
   for (const [key, value] of Object.entries(flatMap)) {
     setNestedValue(result, key, value);

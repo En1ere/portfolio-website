@@ -7,7 +7,10 @@ const { locale, toggleLocale } = useLocale();
 </script>
 
 <template>
-  <UIButton @click="toggleLocale()" size="s">
+  <UIButton
+    @click="toggleLocale()"
+    size="s"
+  >
     {{locale}}
   </UIButton>
 </template>
@@ -17,7 +20,7 @@ const { locale, toggleLocale } = useLocale();
     text-transform: capitalize;
     width: 32px;
 
-    @media (min-width: $tabletBreakpoint) {
+    @media (min-width: $tablet-breakpoint) {
       width: 58px;
       margin: 0 0 0 16px;
     }

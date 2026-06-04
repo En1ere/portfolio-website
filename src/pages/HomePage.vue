@@ -13,5 +13,3 @@ import Works from "@/components/Works.vue";
   <Works />
 </template>
 
-<style scoped lang="scss">
-</style>

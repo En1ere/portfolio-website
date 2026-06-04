@@ -2,11 +2,11 @@
 
 import Cutaway from "@/components/Cutaway.vue";
 import Icon from "@/components/UI/icons/Icon.vue";
-import {socials} from "@/types/constants/socials.ts";
+import { socials } from "@/types/constants/socials.ts";
 import ExperienceStats from "@/components/ExperienceStats.vue";
-import {useLocale} from "@/composables/useLocale.ts";
+import { useLocale } from "@/composables/useLocale.ts";
 
-const {locale} = useLocale()
+const { locale } = useLocale()
 </script>
 
 <template>
@@ -25,7 +25,10 @@ const {locale} = useLocale()
             {{ $t('main_subtitle') }}
           </p>
           <div class="text-content__invite">
-            <a target="_blank" :href="socials.telegram.link" >
+            <a
+              target="_blank"
+              :href="socials.telegram.link"
+            >
               <span>{{ $t('lets_talk') }}</span>
               <div class="text-content__invite-icon"><Icon :name="socials.telegram.icon" /></div>
             </a>
@@ -49,47 +52,52 @@ const {locale} = useLocale()
 
     &__title {
       display: none;
-      @media (min-width: $desktopBreakpoint) {
+
+      @media (min-width: $desktop-breakpoint) {
         display: block;
         color: $brand-color-second;
-        font-size: $biggestText;
+        font-size: $biggest-text;
         margin: 0 0 64px;
       }
     }
   }
+
   .wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    @media (min-width: $desktopBreakpoint) {
+    @media (min-width: $desktop-breakpoint) {
       flex-direction: row;
       max-width: 1024px;
     }
 
-    @media (min-width: $wideBreakpoint) {
+    @media (min-width: $wide-breakpoint) {
       flex-direction: row;
       margin: 0 0 0 128px;
     }
   }
+
   .content-wrapper {
     display: flex;
     flex-direction: column;
 
-    @media (min-width: $wideBreakpoint) {
+    @media (min-width: $wide-breakpoint) {
       flex-direction: row;
     }
   }
+
   .text-content {
     padding: 0 16px;
-    margin: 82px 0 64px 0;
+    margin: 82px 0 64px;
 
     &__title {
       position: relative;
-      font-size: $H2-U;
-      margin: 22px 0 84px 0;
-      @media (min-width: $tabletBreakpoint) {
-        font-size: $H1-U;
+      font-size: $h2-u;
+      margin: 22px 0 84px;
+
+      @media (min-width: $tablet-breakpoint) {
+        font-size: $h1-u;
       }
 
       &_name {
@@ -100,19 +108,21 @@ const {locale} = useLocale()
         content: '<h1>';
         position: absolute;
         color: $brand-color-second;
-        font-size: $Para-U;
+        font-size: $para-u;
         top: -22px;
         left: -16px;
       }
+
       &::after {
         content: '</h1>';
         position: absolute;
         color: $brand-color-second;
-        font-size: $Para-U;
+        font-size: $para-u;
         bottom: -22px;
         left: -16px;
       }
     }
+
     &__text {
       position: relative;
       margin: 30px 0;
@@ -121,19 +131,21 @@ const {locale} = useLocale()
         content: '<p>';
         position: absolute;
         color: $brand-color-second;
-        font-size: $Para-U;
+        font-size: $para-u;
         top: -30px;
         left: -16px;
       }
+
       &::after {
         content: '</p>';
         position: absolute;
         color: $brand-color-second;
-        font-size: $Para-U;
+        font-size: $para-u;
         bottom: -30px;
         left: -16px;
       }
     }
+
     &__invite {
       color: $brand-color;
       font-size: 42px;
@@ -144,11 +156,13 @@ const {locale} = useLocale()
       & span {
         margin: 0 16px 0 0;
       }
+
       & a {
         display: flex;
         align-items: center;
       }
     }
+
     &__invite-icon {
       display: flex;
       justify-content: center;

@@ -7,16 +7,16 @@ export const works = {
   lifemart: {
     id: 1,
     link: "https://lifemart.ru/",
-    image: lifemartImage
+    image: lifemartImage,
   },
   sushkof: {
     id: 2,
     link: "https://eda1.ru/",
-    image: sushkofImage
+    image: sushkofImage,
   },
   goulash: {
     id: 3,
     link: "https://pizzasan.ru/",
-    image: goulashImage
+    image: goulashImage,
   },
 } as const

@@ -38,6 +38,7 @@
     display: flex;
     justify-content: center;
   }
+
   .experience {
     background: #1A1E23;
     border-radius: 80px;
@@ -49,13 +50,13 @@
     &__item {
       display: flex;
       align-items: center;
-      font-size: $Para-U;
+      font-size: $para-u;
       white-space: wrap;
 
       &_number {
         display: block;
         color: $brand-color;
-        font-size: $H2-U;
+        font-size: $h2-u;
         width: 42px;
         margin: 0 16px 0 0;
         text-align: right;

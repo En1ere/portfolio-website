@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import {onBeforeUnmount, onMounted, watch} from 'vue';
+import { onBeforeUnmount, onMounted, watch } from 'vue';
 import { useModals } from '@/composables/useModals';
 
 const { isAnyModalOpen, currentModalComponent, closeModal } = useModals();
+let savedScrollY = 0;
 
 const lockScroll = () => {
-  scrollY = window.scrollY;
+  savedScrollY = window.scrollY;
 
   document.body.style.position = 'fixed';
-  document.body.style.top = `-${scrollY}px`;
+  document.body.style.top = `-${savedScrollY}px`;
   document.body.style.left = '0';
   document.body.style.right = '0';
   document.body.style.width = '100%';
@@ -23,7 +24,7 @@ const unlockScroll = () => {
   document.body.style.width = '';
   document.body.style.overflow = '';
 
-  window.scrollTo(0, scrollY);
+  window.scrollTo(0, savedScrollY);
 };
 
 const handleKeydown = (event: KeyboardEvent) => {
@@ -99,7 +100,7 @@ watch(isAnyModalOpen, (isOpen) => {
   inset: 0;
   z-index: 1000;
   padding: 24px;
-  background: rgba(0, 0, 0, 0.56);
+  background: rgb(0 0 0 / 56%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,8 +125,9 @@ watch(isAnyModalOpen, (isOpen) => {
     font-size: 24px;
     line-height: 1;
     cursor: pointer;
+
     &:hover {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgb(255 255 255 / 8%);
     }
   }
 }
@@ -138,7 +140,7 @@ watch(isAnyModalOpen, (isOpen) => {
   overflow: hidden;
   border-radius: 40px;
   border: 0;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 20px 60px rgb(0 0 0 / 35%);
   background: $color-bg;
 }
 

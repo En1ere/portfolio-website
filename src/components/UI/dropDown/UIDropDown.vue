@@ -1,53 +1,79 @@
 <script setup lang="ts">
 import Icon from "@/components/UI/icons/Icon.vue";
-import {onBeforeUnmount, onMounted, ref} from "vue";
-import {useLocale} from "@/composables/useLocale.ts";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { useLocale } from "@/composables/useLocale.ts";
+
 const { t } = useLocale();
-type SelectValue = string
+
+type SelectValue = string;
 
 interface Props {
-  modelValue?: SelectValue
-  list: SelectValue[]
-  placeholder?: string
+  modelValue?: SelectValue;
+  list: SelectValue[];
+  placeholder?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   list: () => [],
-  placeholder: '...',
-})
+  placeholder: "...",
+});
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: SelectValue): void
-}>()
+  (e: "update:modelValue", value: SelectValue): void;
+}>();
 
-const dropDownRoot = ref<HTMLElement | null>(null)
+const dropDownRoot = ref<HTMLElement | null>(null);
 const isOpen = ref(false);
-const toggle = () => isOpen.value = !isOpen.value;
-const select = (item: SelectValue) => {
-  emit('update:modelValue', item)
+
+const selectedLabel = computed(() => {
+  return props.modelValue ? t(`filter.${props.modelValue}`) : props.placeholder;
+});
+
+const toggle = () => {
+  isOpen.value = !isOpen.value;
+};
+
+const close = () => {
   isOpen.value = false;
-}
+};
+
+const select = (item: SelectValue) => {
+  emit("update:modelValue", item);
+  close();
+};
 
 const onClickOutside = (event: MouseEvent) => {
-  const target = event.target as Node | null
-  if (!dropDownRoot.value || !target) return
+  const target = event.target as Node | null;
+
+  if (!dropDownRoot.value || !target) {return;}
 
   if (!dropDownRoot.value.contains(target)) {
-    isOpen.value = false
+    close();
   }
-}
+};
+
+const onKeydown = (event: KeyboardEvent) => {
+  if (event.key === "Escape") {
+    close();
+  }
+};
 
 onMounted(() => {
-  document.addEventListener('click', onClickOutside)
-})
+  document.addEventListener("click", onClickOutside);
+  document.addEventListener("keydown", onKeydown);
+});
 
 onBeforeUnmount(() => {
-  document.removeEventListener('click', onClickOutside)
-})
+  document.removeEventListener("click", onClickOutside);
+  document.removeEventListener("keydown", onKeydown);
+});
 </script>
 
 <template>
-  <div ref="dropDownRoot" class="drop-down-wrapper">
+  <div
+    ref="dropDownRoot"
+    class="drop-down-wrapper"
+  >
     <button
       type="button"
       class="ui-drop-down"
@@ -55,9 +81,13 @@ onBeforeUnmount(() => {
       aria-haspopup="listbox"
       @click="toggle"
     >
-      {{ modelValue ? t(`filter.${modelValue}`) : placeholder }}
-      <Icon :class="['ui-drop-down__icon', {'active': isOpen}]" name="IconArrowDown" />
+      {{ selectedLabel }}
+      <Icon
+        :class="['ui-drop-down__icon', { active: isOpen }]"
+        name="IconArrowDown"
+      />
     </button>
+
     <Transition name="dropdown">
       <div
         v-if="isOpen"
@@ -66,11 +96,11 @@ onBeforeUnmount(() => {
       >
         <ul class="ui-drop-down__list">
           <li
-            v-for="item in list"
+            v-for="item in props.list"
             :key="item"
             class="ui-drop-down__option"
             role="option"
-            :aria-selected="item === modelValue"
+            :aria-selected="item === props.modelValue"
             @click="select(item)"
           >
             {{ t(`filter.${item}`) }}
@@ -86,14 +116,15 @@ onBeforeUnmount(() => {
   position: relative;
   width: 100%;
 
-  @media (min-width: $tabletBreakpoint) {
+  @media (min-width: $tablet-breakpoint) {
     min-width: 190px;
   }
 }
+
 .list-wrapper {
   position: absolute;
   top: 55px;
-  background: #FFFFFF;
+  background: #FFF;
   border-radius: 24px;
   border: 0;
   width: 100%;
@@ -101,7 +132,7 @@ onBeforeUnmount(() => {
   padding: 16px 0;
   overflow: hidden;
   transform-origin: top;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 8%);
 }
 
 .dropdown-enter-active,
@@ -129,7 +160,7 @@ onBeforeUnmount(() => {
   padding: 4px 16px;
   border: 1px solid $color-bg;
   border-radius: 24px;
-  background: #FFFFFF;
+  background: #FFF;
   color: $color-bg;
   display: flex;
   align-items: center;
@@ -138,6 +169,7 @@ onBeforeUnmount(() => {
     max-height: calc(32px + (39px * 3));
     overflow: auto;
   }
+
   &__option {
     color: $color-bg;
     padding: 8px 16px;
@@ -148,6 +180,7 @@ onBeforeUnmount(() => {
       color: $main-white-color;
     }
   }
+
   &__icon {
     position: absolute;
     top: 50%;

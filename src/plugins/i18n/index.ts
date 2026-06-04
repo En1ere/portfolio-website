@@ -9,10 +9,10 @@ type Locale = 'ru' | 'en';
 export const i18n = createI18n<[MessageSchema], Locale>({
   legacy: false,
   globalInjection: true,
-  locale: 'en',
-  fallbackLocale: 'en',
+  locale: 'ru',
+  fallbackLocale: 'ru',
   messages: {
-    en,
     ru,
+    en,
   },
 });

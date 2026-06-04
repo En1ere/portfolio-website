@@ -1,26 +1,38 @@
 <script setup lang="ts">
 
-import {socials} from "@/types/constants/socials.ts";
-import Icon, {type IconName} from "@/components/UI/icons/Icon.vue";
-import {tags} from "@/types/constants/tags.ts";
+import { socials } from "@/types/constants/socials.ts";
+import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
+import { tags } from "@/types/constants/tags.ts";
+import { useLocale } from "@/composables/useLocale.ts";
+
+const { t } = useLocale()
 </script>
 
 <template>
   <div class="cutaway">
     <div class="profile">
       <div class="profile__img-wrapper">
-        <img src="@/assets/img/about/pic.jpg" alt="">
+        <img
+          src="@/assets/img/about/pic.jpg"
+          alt=""
+        >
       </div>
       <span class="profile__name">
-        {{ $t('name_full') }}
+        {{ t('name_full') }}
       </span>
       <span class="profile__position">
-        {{ $t('job_title') }}
+        {{ t('job_title') }}
       </span>
     </div>
     <div class="socials">
-      <div v-for="social in socials" :key="social.id">
-        <Icon class="socials__icon" :name="social.icon as IconName" />
+      <div
+        v-for="social in socials"
+        :key="social.id"
+      >
+        <Icon
+          class="socials__icon"
+          :name="social.icon as IconName"
+        />
         <a
           v-if="social.id === 2"
           target="_blank"
@@ -39,16 +51,26 @@ import {tags} from "@/types/constants/tags.ts";
         </a>
       </div>
       <div class="socials__item geo">
-        <Icon class="socials__icon" name="IconGeo" />
+        <Icon
+          class="socials__icon"
+          name="IconGeo"
+        />
         <span>Russia, Ekaterinburg</span>
       </div>
       <div class="socials__item geo">
-        <Icon class="socials__icon" name="IconCase" />
+        <Icon
+          class="socials__icon"
+          name="IconCase"
+        />
         <span>Full-time</span>
       </div>
     </div>
     <div class="tags">
-      <div v-for="tag in tags" class="tags__item">
+      <div
+        v-for="tag in tags"
+        :key="tag"
+        class="tags__item"
+      >
         {{tag}}
       </div>
     </div>
@@ -58,7 +80,7 @@ import {tags} from "@/types/constants/tags.ts";
         download="Alexander-Frontend-Developer-CV.pdf"
         class="download__button"
       >
-        <span>{{ $t('download_cv') }}</span> <Icon name="IconDownload" />
+        <span>{{ t('download_cv') }}</span> <Icon name="IconDownload" />
       </a>
     </div>
   </div>
@@ -70,15 +92,16 @@ import {tags} from "@/types/constants/tags.ts";
     flex-direction: column;
     align-items: center;
     border: 4px solid $main-white-color;
-    border-radius: 100px 0 100px 0;
-    box-shadow: -4px -4px 3px 0px $brand-color;
+    border-radius: 100px 0;
+    box-shadow: -4px -4px 3px 0 $brand-color;
     padding: 36px 0;
 
-    @media (min-width: $tabletBreakpoint) {
+    @media (min-width: $tablet-breakpoint) {
       max-width: 320px;
       margin: 0 auto;
     }
   }
+
   .profile {
     display: flex;
     flex-direction: column;
@@ -89,18 +112,21 @@ import {tags} from "@/types/constants/tags.ts";
       height: 96px;
       border-radius: 50%;
       border: 3px solid $brand-color;
-      margin: 0 0 16px 0;
+      margin: 0 0 16px;
       overflow: hidden;
     }
+
     &__name {
-      font-family: "Ubuntu-Medium";
-      font-size: $H2-U;
+      font-family: Ubuntu-Medium, sans-serif;
+      font-size: $h2-u;
     }
+
     &__position {
-      font-size: $Para-U;
-      margin: 16px 0 0 0;
+      font-size: $para-u;
+      margin: 16px 0 0;
     }
   }
+
   .socials {
     margin: 32px 0 0;
     display: flex;
@@ -113,17 +139,19 @@ import {tags} from "@/types/constants/tags.ts";
       margin: 0 16px 0 0;
     }
   }
+
   .tags {
     margin: 32px 0 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
+
     &__item {
       color: $color-bg;
       background: $brand-color;
       padding: 0 16px;
-      font-size: $Para-U;
+      font-size: $para-u;
       height: 36px;
       display: flex;
       align-items: center;
@@ -132,8 +160,10 @@ import {tags} from "@/types/constants/tags.ts";
       border-radius: 16px;
     }
   }
+
   .download {
     margin: 32px 0 0;
+
     &__button{
       display: flex;
       align-items: center;
@@ -145,6 +175,7 @@ import {tags} from "@/types/constants/tags.ts";
       color: $color-bg;
       white-space: nowrap;
       padding: 0 32px;
+
       & svg {
         width: 20px;
         height: 20px;

@@ -14,7 +14,7 @@ const modalRegistry = {
 const isAnyModalOpen = computed(() => currentModal.value !== null);
 
 const currentModalComponent = computed(() => {
-  if (!currentModal.value) return null;
+  if (!currentModal.value) {return null;}
   return modalRegistry[currentModal.value] ?? null;
 });
 

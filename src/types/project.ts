@@ -4,7 +4,7 @@ export const EProjectCategory = {
   other: 'other',
 } as const;
 
-export const EProjectCategories = {
+export const EProjectCategoriesFilter = {
   all: 'all',
   ...EProjectCategory,
 } as const;
@@ -15,8 +15,13 @@ export const EProjectStatus = {
   inQueue: 'inQueue',
 } as const;
 
+export const EProjectStatusesFilter = {
+  all: 'all',
+  ...EProjectStatus,
+} as const;
+
 export type ProjectCategory = typeof EProjectCategory[keyof typeof EProjectCategory];
-export type ProjectCategories = typeof EProjectCategories[keyof typeof EProjectCategories];
+export type ProjectCategories = typeof EProjectCategoriesFilter[keyof typeof EProjectCategoriesFilter];
 export type ProjectStatus = typeof EProjectStatus[keyof typeof EProjectStatus];
 
 export interface IProject {
@@ -31,6 +36,6 @@ export interface IProject {
 
 export type FiltersState = {
   search: string
-  category: keyof typeof EProjectCategories
-  status: keyof typeof EProjectStatus
+  category: keyof typeof EProjectCategoriesFilter
+  status: keyof typeof EProjectStatusesFilter
 }

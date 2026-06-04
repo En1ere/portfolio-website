@@ -19,6 +19,6 @@ export const useLocale = () => {
     setLocale,
     toggleLocale,
     getAvailableLocales,
-    t
+    t,
   };
 };

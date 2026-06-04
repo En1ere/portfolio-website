@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation, Autoplay} from 'swiper/modules'
-
+import { Navigation, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import {works} from "@/types/constants/works.ts";
+import { works } from "@/types/constants/works.ts";
 import Icon from "@/components/UI/icons/Icon.vue";
+import { useLocale } from "@/composables/useLocale.ts";
 
+const { t } = useLocale()
 const swiperModules = [Navigation, Autoplay]
 
 const swiperOptions = {
@@ -34,10 +35,10 @@ const swiperOptions = {
   <div class="works-wrapper">
     <section class="works">
       <h1 class="works__title">
-        {{$t('works_title')}}
+        {{t('works_title')}}
       </h1>
       <span class="works__subtitle">
-        {{ $t('works_subtitle') }}
+        {{ t('works_subtitle') }}
       </span>
       <div class="slider">
         <Swiper
@@ -54,9 +55,12 @@ const swiperOptions = {
               :href="work.link"
               target="_blank"
             >
-              {{$t('view_site')}}
+              {{t('view_site')}}
             </a>
-            <img :src="work.image" alt="">
+            <img
+              :src="work.image"
+              alt=""
+            >
           </SwiperSlide>
         </Swiper>
         <div class="slider__controls">
@@ -86,6 +90,7 @@ const swiperOptions = {
     background: #1A1E23;
     padding: 64px;
   }
+
   .works {
     display: flex;
     flex-direction: column;
@@ -93,9 +98,10 @@ const swiperOptions = {
 
     &__title {
       --line-width: 205px;
+
       position: relative;
       display: inline-block;
-      font-size: $H1-U;
+      font-size: $h1-u;
       color: $brand-color;
       padding-bottom: 16px;
 
@@ -125,21 +131,24 @@ const swiperOptions = {
         box-shadow: calc(var(--line-width) - 12px) 0 0 $brand-color;
       }
     }
+
     &__subtitle {
       margin: 32px 0 64px;
       text-align: center;
     }
   }
+
   .slider {
     position: relative;
     max-height: 198px;
     max-width: 298px;
 
-    @media (min-width: $tabletBreakpoint) {
+    @media (min-width: $tablet-breakpoint) {
       max-height: 320px;
       max-width: 480px;
     }
-    @media (min-width: $desktopBreakpoint) {
+
+    @media (min-width: $desktop-breakpoint) {
       max-height: 432px;
       max-width: 480px;
     }
@@ -147,15 +156,17 @@ const swiperOptions = {
     &__link {
       position: absolute;
       top: 8px;
-      right: 40px;
+      right: 24px;
       color: $brand-color;
       border-bottom: 2px solid white;
-      padding: 0 0 4px 0;
-      @media (min-width: $tabletBreakpoint) {
+      padding: 0 0 4px;
+
+      @media (min-width: $tablet-breakpoint) {
         top: 24px;
         right: 92px;
       }
-      @media (min-width: $desktopBreakpoint) {
+
+      @media (min-width: $desktop-breakpoint) {
         top: 40px;
         right: 116px;
       }
@@ -183,7 +194,7 @@ const swiperOptions = {
       display: flex;
       justify-content: space-between;
 
-      @media (min-width: $tabletBreakpoint) {
+      @media (min-width: $tablet-breakpoint) {
         bottom: unset;
         top: 50%;
         transform: translate(-100px, -50%);
@@ -202,7 +213,7 @@ const swiperOptions = {
       align-items: center;
       padding: 4px;
 
-      @media (min-width: $tabletBreakpoint) {
+      @media (min-width: $tablet-breakpoint) {
         width: 72px;
         height: 72px;
       }

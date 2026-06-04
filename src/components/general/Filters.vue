@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import {EProjectCategories, EProjectStatus, type FiltersState} from "@/types/project.ts";
-  import {isHTMLSelect, isProjectCategory, isProjectStatus} from "@/types/helpers.ts";
+import { EProjectCategoriesFilter, EProjectStatusesFilter, type FiltersState } from "@/types/project.ts";
+  import { isProjectCategory, isProjectStatus } from "@/types/helpers.ts";
   import UIInput from "@/components/UI/input/UIInput.vue";
   import UIDropDown from "@/components/UI/dropDown/UIDropDown.vue";
 
-  const {activeFilters} = defineProps<{
+  const props = defineProps<{
     activeFilters: FiltersState
   }>()
   const emit = defineEmits<{
@@ -13,29 +13,25 @@
 
   const onChangeSearch = (value: string) => {
     emit('update:activeFilters', {
-      ...activeFilters,
+      ...props.activeFilters,
       search: value,
     })
   }
 
-  const onChangeCategory = (event: Event) => {
-    if (!isHTMLSelect(event.currentTarget)) return;
-    const { value } = event.currentTarget;
-    if (!isProjectCategory(value)) return;
+  const onChangeCategory = (value: string) => {
+    if (!isProjectCategory(value)) {return;}
 
     emit('update:activeFilters', {
-      ...activeFilters,
+      ...props.activeFilters,
       category: value,
     })
   };
 
-  const onChangeStatus = (event: Event) => {
-    if (!isHTMLSelect(event.currentTarget)) return;
-    const { value } = event.currentTarget;
-    if (!isProjectStatus(value)) return;
+  const onChangeStatus = (value: string) => {
+    if (!isProjectStatus(value)) {return;}
 
     emit('update:activeFilters', {
-      ...activeFilters,
+      ...props.activeFilters,
       status: value,
     })
   }
@@ -45,19 +41,19 @@
 <template>
   <div class="filters">
     <UIInput
-      :model-value="activeFilters.search"
+      :model-value="props.activeFilters.search"
       @update:modelValue="onChangeSearch"
     />
     <div class="filters__selectors">
       <UIDropDown
-        :list="Object.values(EProjectCategories)"
-        v-model="activeFilters.category"
-        @user-input="onChangeCategory"
+        :model-value="props.activeFilters.category"
+        :list="Object.values(EProjectCategoriesFilter)"
+        @update:modelValue="onChangeCategory"
       />
       <UIDropDown
-        :list="Object.values(EProjectStatus)"
-        v-model="activeFilters.status"
-        @user-input="onChangeStatus"
+        :model-value="props.activeFilters.status"
+        :list="Object.values(EProjectStatusesFilter)"
+        @update:modelValue="onChangeStatus"
       />
     </div>
   </div>
@@ -73,12 +69,13 @@
     max-width: 350px;
     gap: 8px;
 
-    @media (min-width: $tabletBreakpoint) {
+    @media (min-width: $tablet-breakpoint) {
       max-width: 650px;
       flex-direction: row;
       gap: 16px;
     }
-    @media (min-width: $tabletBreakpoint) {
+
+    @media (min-width: $tablet-breakpoint) {
       max-width: 1100px;
       gap: 24px;
     }
@@ -90,11 +87,12 @@
       gap: 8px;
       width: 100%;
 
-      @media (min-width: $tabletBreakpoint) {
+      @media (min-width: $tablet-breakpoint) {
         flex-direction: row;
         gap: 16px;
       }
-      @media (min-width: $tabletBreakpoint) {
+
+      @media (min-width: $tablet-breakpoint) {
         gap: 24px;
       }
     }

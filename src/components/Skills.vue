@@ -1,20 +1,26 @@
 <script setup lang="ts">
-
 import UIBlock from "@/components/UI/blocks/UIBlock.vue";
-import {skills} from "@/types/constants/skills.ts";
+import { skills } from "@/types/constants/skills.ts";
+import { useLocale } from "@/composables/useLocale.ts";
+
+const { t } = useLocale();
 </script>
 
 <template>
   <div class="skills-wrapper">
     <section class="skills">
       <h1 class="skills__title">
-        {{ $t('skills_title') }}
+        {{ t('skills_title') }}
       </h1>
       <span class="skills__subtitle">
-        {{ $t('skills_subtitle') }}
+        {{ t('skills_subtitle') }}
       </span>
       <div class="blocks-wrapper">
-        <UIBlock v-for="skill in skills" :key="skill.id" :skill="skill" />
+        <UIBlock
+          v-for="skill in skills"
+          :key="skill.id"
+          :skill="skill"
+        />
       </div>
     </section>
   </div>
@@ -26,18 +32,21 @@ import {skills} from "@/types/constants/skills.ts";
     overflow: hidden;
     padding: 64px;
     background: url("@/assets/img/skills/skills-background.png") center / cover no-repeat;
+
     &::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(41, 47, 54, 0.9);
+      background: rgb(41 47 54 / 90%);
       z-index: 0;
     }
+
     & > * {
       position: relative;
       z-index: 1;
     }
   }
+
   .skills {
     display: flex;
     flex-direction: column;
@@ -45,7 +54,7 @@ import {skills} from "@/types/constants/skills.ts";
 
     &__title {
       position: relative;
-      font-size: $H1-U;
+      font-size: $h1-u;
       color: $brand-color;
       padding-bottom: 16px;
 
@@ -79,18 +88,20 @@ import {skills} from "@/types/constants/skills.ts";
         }
       }
     }
+
     &__subtitle {
       margin: 32px 0 64px;
       text-align: center;
     }
   }
+
   .blocks-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 24px;
 
-    @media (min-width: $tabletBreakpoint) {
+    @media (min-width: $tablet-breakpoint) {
       flex-direction: row;
     }
   }

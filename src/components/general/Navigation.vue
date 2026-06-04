@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {useRoute} from "vue-router";
-import {type INavRoute, navItems} from "@/router/routes";
+import { useRoute } from "vue-router";
+import { type INavRoute, navItems } from "@/router/routes";
 
 const route = useRoute();
 
@@ -13,7 +13,7 @@ const isCurrent = (item:INavRoute) => item.path === route.path;
       v-for="item in navItems"
       :key="item.name"
       :to="item.path"
-      :class="['navigation__item', {active: isCurrent(item)}]"
+      :class="['navigation__item', { active: isCurrent(item) }]"
     >
       {{ $t(item.label) }}
     </RouterLink>
@@ -26,13 +26,14 @@ const isCurrent = (item:INavRoute) => item.path === route.path;
     gap: 8px;
     font-size: 16px;
 
-    @media (min-width: $tabletBreakpoint) {
-      font-size: $Article-U;
+    @media (min-width: $tablet-breakpoint) {
+      font-size: $article-u;
       gap: 16px;
     }
 
     &__item {
       transition: all 0.2s;
+
       &.active {
         color: $brand-color;
       }

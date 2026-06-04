@@ -1,15 +1,12 @@
-import {EProjectCategories, EProjectStatus} from "@/types/project.ts";
+import { EProjectCategoriesFilter, EProjectStatusesFilter } from "@/types/project.ts";
 
-export const isHTMLSelect = (target: EventTarget | null): target is HTMLSelectElement => {
-  return target instanceof HTMLSelectElement;
-};
-export const isProjectCategory = (value: string): value is typeof EProjectCategories[keyof typeof EProjectCategories] => {
-  return Object.values(EProjectCategories).includes(
-    value as typeof EProjectCategories[keyof typeof EProjectCategories]
+export const isProjectCategory = (value: string): value is typeof EProjectCategoriesFilter[keyof typeof EProjectCategoriesFilter] => {
+  return Object.values(EProjectCategoriesFilter).includes(
+    value as typeof EProjectCategoriesFilter[keyof typeof EProjectCategoriesFilter],
   );
 };
-export const isProjectStatus = (value: string): value is typeof EProjectStatus[keyof typeof EProjectStatus] => {
-  return Object.values(EProjectStatus).includes(
-    value as typeof EProjectStatus[keyof typeof EProjectStatus]
+export const isProjectStatus = (value: string): value is typeof EProjectStatusesFilter[keyof typeof EProjectStatusesFilter] => {
+  return Object.values(EProjectStatusesFilter).includes(
+    value as typeof EProjectStatusesFilter[keyof typeof EProjectStatusesFilter],
   );
 };

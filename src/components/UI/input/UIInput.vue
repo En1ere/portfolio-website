@@ -1,12 +1,12 @@
 <script setup lang="ts">
-  import {computed} from "vue";
-  import {useLocale} from "@/composables/useLocale.ts";
+  import { computed } from "vue";
+  import { useLocale } from "@/composables/useLocale.ts";
   import Icon from "@/components/UI/icons/Icon.vue";
   const { t } = useLocale()
 
   const {
     placeholder = "",
-    modelValue = ""
+    modelValue = "",
   } = defineProps<{
     placeholder?: string,
     modelValue: string
@@ -32,7 +32,10 @@
       :value="modelValue"
       @input="onInput"
     >
-    <Icon class="input-icon" name="IconSearch" />
+    <Icon
+      class="input-icon"
+      name="IconSearch"
+    />
   </div>
 </template>
 
@@ -43,17 +46,19 @@
     align-items: center;
     width: 100%;
     height: 32px;
-    background: #FFFFFF;
+    background: #FFF;
     border-radius: 24px;
     overflow: hidden;
     padding: 0 16px 0 0;
   }
+
   .ui-input {
     height: 100%;
     width: 100%;
     padding: 4px 16px;
     color: $color-bg;
   }
+
   .input-icon {
     height: 20px;
     width: 20px;

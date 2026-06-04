@@ -28,7 +28,10 @@
           {{ $t('about_vision') }}
         </span>
       </p>
-      <img src="@/assets/img/about/about_image.jpg" alt="">
+      <img
+        src="@/assets/img/about/about_image.jpg"
+        alt=""
+      >
     </section>
   </div>
 </template>
@@ -38,6 +41,7 @@
     background: url("@/assets/img/about/about_background.png") center top;
     padding: 0 22px;
   }
+
   .about {
     display: flex;
     flex-direction: column;
@@ -46,17 +50,18 @@
 
     & h1 {
       width: min-content;
-      font-size: $Article-U;
+      font-size: $article-u;
       background: $color-bg;
       border: 4px solid $brand-color;
-      border-radius: 40px 0 40px 0;
+      border-radius: 40px 0;
       white-space: nowrap;
       padding: 16px 40px;
 
-      @media (min-width: $tabletBreakpoint) {
-        font-size: $H1-U;
+      @media (min-width: $tablet-breakpoint) {
+        font-size: $h1-u;
       }
     }
+
     & p {
       position: relative;
       margin: 32px 0 0;
@@ -67,11 +72,12 @@
       flex-direction: column;
       gap: 20px;
 
-      @media (min-width: $tabletBreakpoint) {
+      @media (min-width: $tablet-breakpoint) {
         max-width: 620px;
         margin: 64px 0 0;
       }
-      @media (min-width: $desktopBreakpoint) {
+
+      @media (min-width: $desktop-breakpoint) {
         max-width: 880px;
       }
 
@@ -79,15 +85,16 @@
         content: '<p>';
         position: absolute;
         color: $brand-color-second;
-        font-size: $Para-U;
+        font-size: $para-u;
         top: 24px;
         left: 24px;
       }
+
       &::after {
         content: '</p>';
         position: absolute;
         color: $brand-color-second;
-        font-size: $Para-U;
+        font-size: $para-u;
         bottom: 24px;
         left: 24px;
       }
@@ -100,22 +107,21 @@
       margin: 64px 0 0;
       max-width: 272px;
 
-      @media (min-width: $tabletBreakpoint) {
+      @media (min-width: $tablet-breakpoint) {
         max-width: 462px;
       }
-      @media (min-width: $desktopBreakpoint) {
+
+      @media (min-width: $desktop-breakpoint) {
         margin: 128px 0 0;
       }
     }
 
     & .greetings {
-      font-size: $Article-U;
+      font-size: $article-u;
     }
   }
+
   .highlight {
     color: $brand-color;
-
-    &:first-child {
-    }
   }
 </style>

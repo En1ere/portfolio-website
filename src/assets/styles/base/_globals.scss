@@ -1,18 +1,21 @@
 @use "./variables" as *;
+
 @font-face {
-  font-family: "Ubuntu";
+  font-family: Ubuntu;
   src: url("@/assets/fonts/Ubuntu-Regular.ttf") format("truetype");
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
-  font-family: "Ubuntu-Medium";
+  font-family: Ubuntu-Medium;
   src: url("@/assets/fonts/Ubuntu-Medium.ttf") format("truetype");
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
-  font-family: "Ubuntu-Bold";
+  font-family: Ubuntu-Bold;
   src: url("@/assets/fonts/Ubuntu-Bold.ttf") format("truetype");
   font-style: normal;
   font-display: swap;
@@ -23,23 +26,27 @@
     width: 5px;
     background: $main-white-color;
   }
+
   &::-webkit-scrollbar-thumb {
     background: $color-bg;
     border-radius: 8px;
   }
 }
+
 body {
   width: 100%;
   height: 100vh;
-  font-family: "Ubuntu", sans-serif;
+  font-family: Ubuntu, sans-serif;
   font-weight: 400;
-  font-size: $Para-U;
+  font-size: $para-u;
   background: $color-bg;
   color: $main-white-color;
 }
+
 .letter-right {
   margin: 0 20px 0 0;
 }
+
 .letter-left {
   margin: 0 0 0 20px;
 }

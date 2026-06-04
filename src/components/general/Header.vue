@@ -1,7 +1,7 @@
 <script setup lang="ts">
   // import Navigation from "@/components/general/Navigation.vue";
   import Icon from "@/components/UI/icons/Icon.vue";
-  import {socials} from "@/types/constants/socials.ts";
+  import { socials } from "@/types/constants/socials.ts";
   import LangSelector from "@/components/general/LangSelector.vue";
 
 </script>
@@ -13,12 +13,20 @@
         {{ $t('name_full') }}
       </div>
       <div class="header__nav">
-<!--        <Navigation />-->
+        <!--        <Navigation />-->
         <LangSelector />
-        <a class="header__git" target="_blank" :href="socials.git.link">
+        <a
+          class="header__git"
+          target="_blank"
+          :href="socials.git.link"
+        >
           <Icon :name="socials.git.icon" />
         </a>
-        <a class="header__tg" target="_blank" :href="socials.telegram.link">
+        <a
+          class="header__tg"
+          target="_blank"
+          :href="socials.telegram.link"
+        >
           <Icon :name="socials.telegram.icon" />
         </a>
       </div>
@@ -30,10 +38,11 @@
   .header-wrapper {
     padding: 24px 12px 0;
 
-    @media (min-width: $desktopBreakpoint) {
+    @media (min-width: $desktop-breakpoint) {
       padding: 24px 36px 0;
     }
   }
+
   .header {
     display: flex;
     justify-content: space-between;
@@ -46,34 +55,40 @@
       align-items: center;
       gap: 8px;
 
-      @media (min-width: $tabletBreakpoint) {
+      @media (min-width: $tablet-breakpoint) {
         gap: 16px;
       }
-      @media (min-width: $desktopBreakpoint) {
+
+      @media (min-width: $desktop-breakpoint) {
         gap: 24px;
       }
     }
+
     &__logo {
       color: $brand-color;
 
-      @media (min-width: $tabletBreakpoint) {
-        font-size: $Article-U;
+      @media (min-width: $tablet-breakpoint) {
+        font-size: $article-u;
       }
     }
+
     &__git {
       display: block;
     }
+
     &__tg {
       display: none;
-      @media (min-width: $tabletBreakpoint) {
+
+      @media (min-width: $tablet-breakpoint) {
         display: block;
       }
     }
-    &__git, &__tg {
-      width: 16px;
-      height: 16px;
 
-      @media (min-width: $tabletBreakpoint) {
+    &__git, &__tg {
+      width: 30px;
+      height: 30px;
+
+      @media (min-width: $tablet-breakpoint) {
         width: 30px;
         height: 30px;
       }
