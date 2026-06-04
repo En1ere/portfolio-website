@@ -2,13 +2,24 @@
 import UIBlock from "@/components/UI/blocks/UIBlock.vue";
 import { skills } from "@/types/constants/skills.ts";
 import { useLocale } from "@/composables/useLocale.ts";
+import { useTemplateRef } from "vue";
+import { type TBlockTitle } from "@/types/constants/homePage.ts";
 
 const { t } = useLocale();
+const sectionId: TBlockTitle = 'skills';
+const rootRef = useTemplateRef<HTMLElement>('rootRef')
+defineExpose({
+  rootRef,
+});
 </script>
 
 <template>
-  <div class="skills-wrapper">
-    <section class="skills">
+  <section
+    ref="rootRef"
+    class="skills-wrapper"
+    :id="sectionId"
+  >
+    <div class="skills">
       <h1 class="skills__title">
         {{ t('skills_title') }}
       </h1>
@@ -22,8 +33,8 @@ const { t } = useLocale();
           :skill="skill"
         />
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

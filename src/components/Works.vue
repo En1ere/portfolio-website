@@ -7,8 +7,11 @@ import 'swiper/css/pagination'
 import { works } from "@/types/constants/works.ts";
 import Icon from "@/components/UI/icons/Icon.vue";
 import { useLocale } from "@/composables/useLocale.ts";
+import { useTemplateRef } from "vue";
+import { type TBlockTitle } from "@/types/constants/homePage.ts";
 
 const { t } = useLocale()
+const sectionId: TBlockTitle = 'works';
 const swiperModules = [Navigation, Autoplay]
 
 const swiperOptions = {
@@ -29,11 +32,19 @@ const swiperOptions = {
     pauseOnMouseEnter: true,
   },
 }
+const rootRef = useTemplateRef<HTMLElement>('rootRef')
+defineExpose({
+  rootRef,
+});
 </script>
 
 <template>
-  <div class="works-wrapper">
-    <section class="works">
+  <section
+    ref="rootRef"
+    class="works-wrapper"
+    :id="sectionId"
+  >
+    <div class="works">
       <h1 class="works__title">
         {{t('works_title')}}
       </h1>
@@ -81,8 +92,8 @@ const swiperOptions = {
           </button>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

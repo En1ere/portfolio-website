@@ -21,7 +21,7 @@ const scrollUp = () => window.scrollTo({
   .scroll-up-button {
     background: $color-bg;
     border: 0;
-    box-shadow: 0 0 10px 0 #ffffffc4;
+    box-shadow: $white-shadow;
     border-radius: 50%;
     width: 40px;
     height: 40px;

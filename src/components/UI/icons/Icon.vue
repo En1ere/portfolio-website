@@ -14,6 +14,10 @@ import IconArrowRight from "@/components/UI/icons/IconArrowRight.vue";
 import IconSearch from "@/components/UI/icons/IconSearch.vue";
 import IconArrowDown from "@/components/UI/icons/IconArrowDown.vue";
 import IconArrowUp from "@/components/UI/icons/IconArrowUp.vue";
+import IconSquares from "@/components/UI/icons/IconSquares.vue";
+import IconProfile from "@/components/UI/icons/IconProfile.vue";
+import IconBrackets from "@/components/UI/icons/IconBrackets.vue";
+import IconCheck from "@/components/UI/icons/IconCheck.vue";
 import type { TClassValue } from "@/types/style.ts";
 
 const icons = {
@@ -31,6 +35,10 @@ const icons = {
   IconSearch,
   IconArrowDown,
   IconArrowUp,
+  IconSquares,
+  IconProfile,
+  IconBrackets,
+  IconCheck,
 } as const;
 export type IconName = keyof typeof icons
 

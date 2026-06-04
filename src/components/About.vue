@@ -1,39 +1,53 @@
 <script setup lang="ts">
 
+  import { useLocale } from "@/composables/useLocale.ts";
+  import { useTemplateRef } from "vue";
+  import { type TBlockTitle } from "@/types/constants/homePage.ts";
+
+  const { t } = useLocale()
+  const sectionId: TBlockTitle = 'about';
+  const rootRef = useTemplateRef<HTMLElement>('rootRef')
+  defineExpose({
+    rootRef,
+  });
 </script>
 
 <template>
-  <div class="about-wrapper">
-    <section class="about">
+  <section
+    ref="rootRef"
+    class="about-wrapper"
+    :id="sectionId"
+  >
+    <div class="about">
       <h1>
-        {{$t('about_me')}}
+        {{t('about_me')}}
       </h1>
       <p>
         <span class="greetings highlight">
-          {{$t('hello')}}
+          {{t('hello')}}
         </span>
         <span>
-          {{ $t('my_name_is') }}
-          {{ $t('name') }}
-          {{ $t('about_spec') }}
+          {{ t('my_name_is') }}
+          {{ t('name') }}
+          {{ t('about_spec') }}
           <span class="highlight">HTML</span>, <span class="highlight">CSS</span>, <span class="highlight">JS</span>, <span class="highlight">TS</span>, <span class="highlight">Vue</span> etc.
         </span>
         <span>
-          {{ $t('about_pers') }}
+          {{ t('about_pers') }}
         </span>
         <span>
-          {{ $t('about_hobby') }}
+          {{ t('about_hobby') }}
         </span>
         <span>
-          {{ $t('about_vision') }}
+          {{ t('about_vision') }}
         </span>
       </p>
       <img
         src="@/assets/img/about/about_image.jpg"
         alt=""
       >
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

@@ -13,6 +13,7 @@
     "lint:styles:fix": "stylelint \"src/**/*.{css,scss,vue}\" --fix",
     "format": "prettier . --write",
     "check": "npm run lint && npm run lint:styles && npm run build",
+    "check:fix": "npm run lint:fix && npm run lint:styles:fix && npm run build",
     "i18n:pull": "tsx scripts/googlesheets-translate.ts",
     "deploy": "gh-pages -d dist"
   },

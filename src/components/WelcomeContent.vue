@@ -5,31 +5,43 @@ import Icon from "@/components/UI/icons/Icon.vue";
 import { socials } from "@/types/constants/socials.ts";
 import ExperienceStats from "@/components/ExperienceStats.vue";
 import { useLocale } from "@/composables/useLocale.ts";
+import { useTemplateRef } from "vue";
+import { type TBlockTitle } from "@/types/constants/homePage.ts";
 
-const { locale } = useLocale()
+const { locale, t } = useLocale()
+
+const sectionId: TBlockTitle = 'welcome';
+const rootRef = useTemplateRef<HTMLElement>('rootRef')
+defineExpose({
+  rootRef,
+});
 </script>
 
 <template>
-  <section class="welcome">
+  <section
+    ref="rootRef"
+    class="welcome"
+    :id="sectionId"
+  >
     <h1 class="welcome__title">
-      {{ $t('main_title') }}
+      {{ t('main_title') }}
     </h1>
     <div class="content-wrapper">
       <Cutaway />
       <div class="wrapper">
         <div class="text-content">
           <h1 class="text-content__title">
-            {{ locale === 'en' ? "Hey " : null }}{{ $t('name_is') }}<span class="text-content__title_name letter-left">{{$t('name')}}</span>,<br/>{{$t('job_title')}}
+            {{ locale === 'en' ? "Hey " : null }}{{ t('name_is') }}<span class="text-content__title_name letter-left">{{t('name')}}</span>,<br/>{{t('job_title')}}
           </h1>
           <p class="text-content__text">
-            {{ $t('main_subtitle') }}
+            {{ t('main_subtitle') }}
           </p>
           <div class="text-content__invite">
             <a
               target="_blank"
               :href="socials.telegram.link"
             >
-              <span>{{ $t('lets_talk') }}</span>
+              <span>{{ t('lets_talk') }}</span>
               <div class="text-content__invite-icon"><Icon :name="socials.telegram.icon" /></div>
             </a>
           </div>
