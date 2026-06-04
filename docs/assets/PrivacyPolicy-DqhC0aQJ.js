@@ -1,1 +1,0 @@
-import{j as t,z as a,s,f as n,x as o,y as c}from"./index-BK6yxUIk.js";const i=t({__name:"PrivacyPolicy",setup(r){const{t:e}=a();return(p,l)=>(s(),n("p",null,o(c(e)("privacy_text")),1))}});export{i as default};

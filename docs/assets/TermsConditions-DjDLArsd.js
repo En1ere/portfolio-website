@@ -1,1 +1,0 @@
-import{j as t,z as s,s as n,f as o,x as a,y as r}from"./index-BK6yxUIk.js";const m=t({__name:"TermsConditions",setup(c){const{t:e}=s();return(p,_)=>(n(),o("p",null,a(r(e)("terms_text")),1))}});export{m as default};
