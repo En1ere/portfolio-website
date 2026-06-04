@@ -1,0 +1,1 @@
+import{_ as s,f as t,b as n,s as o}from"./index-BK6yxUIk.js";const r={};function a(c,e){return o(),t("section",null,[...e[0]||(e[0]=[n("h1",null,"404",-1),n("p",null,"Страница не найдена",-1)])])}const _=s(r,[["render",a]]);export{_ as default};
