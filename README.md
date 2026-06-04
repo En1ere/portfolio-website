@@ -48,11 +48,14 @@ npm run preview
 
 # Доступные скрипты
 ```
-npm run dev      # запуск dev-сервера
-npm run build    # production build
-npm run preview  # локальный просмотр production build
-npm run lint     # проверка линтером, если настроен
-npm i18n:pull    # установка значений локалей из Google docs
-npm deploy       # деплой в gh pages
+npm run dev          # запуск dev-сервера
+npm run build        # production build
+npm run preview      # локальный просмотр production build
+npm run lint         # проверка eslint
+npm run lint:styles  # проверка stylelint
+npm run format       # проверка prettier
+npm run check        # проверка eslint + stylelint + build
+npm i18n:pull        # установка значений локалей из Google docs
+npm deploy           # деплой в gh pages
 
 ```
