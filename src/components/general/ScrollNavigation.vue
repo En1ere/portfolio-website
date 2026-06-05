@@ -84,6 +84,7 @@ onBeforeUnmount(() => {
     >
       <Icon
         :color="isActive(blockKey) ? '#292F36' : '#FFFFFF'"
+        :hover-color="isActive(blockKey) ? '' : '#98FAEC'"
         :name="getIconName(block)"
       />
     </button>

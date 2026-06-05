@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import {computed, ref} from 'vue';
 import IconMail from "@/components/UI/icons/IconMail.vue";
 import IconGeo from "@/components/UI/icons/IconGeo.vue";
 import IconVk from "@/components/UI/icons/IconVk.vue";
@@ -48,18 +48,27 @@ interface SvgIconProps {
   width?: number | string;
   height?: number | string;
   color?: string;
+  hoverColor?: string;
   class?: TClassValue;
 }
 
 const props = defineProps<SvgIconProps>();
 
 const component = computed(() => icons[props.name]);
+const color = computed(() => mouseHover.value && props.hoverColor ? props.hoverColor : props.color);
+
+const mouseHover = ref(false);
+const mouseEnterHandler = () => mouseHover.value = true
+const mouseLeaveHandler = () => mouseHover.value = false
 </script>
 
 <template>
   <Component
+    @mouseenter="mouseEnterHandler"
+    @mouseleave="mouseLeaveHandler"
     :is="component"
     v-if="component"
     v-bind="props"
+    :color="color"
   />
 </template>

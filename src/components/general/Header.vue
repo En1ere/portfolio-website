@@ -3,14 +3,18 @@
   import Icon from "@/components/UI/icons/Icon.vue";
   import { socials } from "@/types/constants/socials.ts";
   import LangSelector from "@/components/general/LangSelector.vue";
+  import {useLocale} from "@/composables/useLocale.ts";
 
+  const { t } = useLocale()
 </script>
 
 <template>
   <div class="header-wrapper">
     <header class="header">
       <div class="header__logo">
-        {{ $t('name_full') }}
+        <RouterLink to="/home">
+          {{ t('name_full') }}
+        </RouterLink>
       </div>
       <div class="header__nav">
         <!--        <Navigation />-->
@@ -20,14 +24,14 @@
           target="_blank"
           :href="socials.git.link"
         >
-          <Icon :name="socials.git.icon" />
+          <Icon :name="socials.git.icon" :hover-color="'#98FAEC'" />
         </a>
         <a
           class="header__tg"
           target="_blank"
           :href="socials.telegram.link"
         >
-          <Icon :name="socials.telegram.icon" />
+          <Icon :name="socials.telegram.icon" :hover-color="'#98FAEC'" />
         </a>
       </div>
     </header>
