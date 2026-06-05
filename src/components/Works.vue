@@ -79,7 +79,7 @@ defineExpose({
             class="slider__button slider__button--prev"
             type="button"
           >
-            <Icon name="IconArrowLeft" />
+            <Icon name="IconArrowLeft" hover-color="#98FAEC" />
           </button>
 
           <div class="slider__pagination" />
@@ -88,7 +88,7 @@ defineExpose({
             class="slider__button slider__button--next"
             type="button"
           >
-            <Icon name="IconArrowRight" />
+            <Icon name="IconArrowRight" hover-color="#98FAEC" />
           </button>
         </div>
       </div>
@@ -171,6 +171,11 @@ defineExpose({
       color: $brand-color;
       border-bottom: 2px solid white;
       padding: 0 0 4px;
+      transition: all 0.2s;
+
+      &:hover {
+        color: $brand-color-second;
+      }
 
       @media (min-width: $tablet-breakpoint) {
         top: 24px;

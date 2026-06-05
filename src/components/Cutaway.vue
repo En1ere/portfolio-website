@@ -1,11 +1,12 @@
 <script setup lang="ts">
 
-import { socials } from "@/types/constants/socials.ts";
+import {type ISocial, socials} from "@/types/constants/socials.ts";
 import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
 import { tags } from "@/types/constants/tags.ts";
 import { useLocale } from "@/composables/useLocale.ts";
 
 const { t } = useLocale()
+const getIcon = (social: ISocial) => social.icon as IconName
 </script>
 
 <template>
@@ -31,7 +32,7 @@ const { t } = useLocale()
       >
         <Icon
           class="socials__icon"
-          :name="social.icon as IconName"
+          :name="getIcon(social)"
         />
         <a
           v-if="social.id === 2"
@@ -76,7 +77,7 @@ const { t } = useLocale()
     </div>
     <div class="download">
       <a
-        href="/files/resume.pdf"
+        href="/files/Alexander-Frontend-Developer-CV.pdf"
         download="Alexander-Frontend-Developer-CV.pdf"
         class="download__button"
       >
@@ -175,6 +176,11 @@ const { t } = useLocale()
       color: $color-bg;
       white-space: nowrap;
       padding: 0 32px;
+      transition: all 0.2s;
+
+      &:hover {
+        background: $brand-color-second;
+      }
 
       & svg {
         width: 20px;

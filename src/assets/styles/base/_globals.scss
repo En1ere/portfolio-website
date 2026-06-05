@@ -60,6 +60,10 @@ main {
   }
 }
 
+svg, path {
+  transition: all 0.2s;
+}
+
 .letter-right {
   margin: 0 20px 0 0;
 }

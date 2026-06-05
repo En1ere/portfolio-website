@@ -24,14 +24,14 @@
           target="_blank"
           :href="socials.git.link"
         >
-          <Icon :name="socials.git.icon" />
+          <Icon :name="socials.git.icon" :hover-color="'#98FAEC'" />
         </a>
         <a
           class="header__tg"
           target="_blank"
           :href="socials.telegram.link"
         >
-          <Icon :name="socials.telegram.icon" />
+          <Icon :name="socials.telegram.icon" :hover-color="'#98FAEC'" />
         </a>
       </div>
     </header>

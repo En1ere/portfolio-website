@@ -42,7 +42,7 @@ defineExpose({
               :href="socials.telegram.link"
             >
               <span>{{ t('lets_talk') }}</span>
-              <div class="text-content__invite-icon"><Icon :name="socials.telegram.icon" /></div>
+              <div class="text-content__invite-icon"><Icon :name="socials.telegram.icon" hover-color="#98FAEC" /></div>
             </a>
           </div>
         </div>
@@ -164,6 +164,11 @@ defineExpose({
       margin: 50px 0 0;
       display: flex;
       align-items: center;
+      transition: all 0.2s;
+
+      &:hover {
+        color: $brand-color-second;
+      }
 
       & span {
         margin: 0 16px 0 0;

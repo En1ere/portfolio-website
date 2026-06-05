@@ -1,4 +1,13 @@
-export const socials = {
+export type TSocial = "git" | "mail" | "telegram" | "vk"
+export interface ISocial {
+  id: number,
+  title: string,
+  link: string,
+  icon: string,
+  aria: string,
+}
+
+export const socials: Record<TSocial, ISocial> = {
   git: {
     id: 1,
     title: "@en1ere",

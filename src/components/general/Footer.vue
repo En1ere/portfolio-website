@@ -102,6 +102,11 @@
       border-radius: 50%;
       border: 0;
       padding: 8px;
+      transition: all 0.2s;
+
+      &:hover {
+        background: $brand-color;
+      }
     }
 
     &__copyright {
