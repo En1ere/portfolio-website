@@ -86,29 +86,10 @@
     padding: 24px 126px;
   }
 
-  @supports not (gap: 24px) {
-    > * + * {
-      margin-top: 24px;
-    }
-
-    @media (min-width: $desktop-breakpoint) {
-      > * + * {
-        margin-top: 0;
-        margin-right: 8px;
-      }
-    }
-  }
-
   &__socials {
     display: flex;
     flex-wrap: nowrap;
     gap: 32px;
-
-    @supports not (gap: 32px) {
-      > * + * {
-        margin-left: 32px;
-      }
-    }
   }
 
   &__social-item {
@@ -141,14 +122,6 @@
       flex-direction: row;
       gap: 8px;
     }
-
-    @supports not (gap: 8px) {
-      @media (min-width: $tablet-breakpoint) {
-        > * + * {
-          margin-left: 8px;
-        }
-      }
-    }
   }
 
   &__privacy {
@@ -156,12 +129,6 @@
     display: flex;
     justify-content: center;
     gap: 32px;
-
-    @supports not (gap: 32px) {
-      > * + * {
-        margin-left: 32px;
-      }
-    }
   }
 
   &__version {
@@ -196,8 +163,43 @@
   @media (min-width: $tablet-breakpoint) {
     flex-direction: row;
   }
+}
 
-  @supports not (gap: 24px) {
+.no-flex-gap {
+  .footer {
+    > * + * {
+      margin-top: 24px;
+    }
+
+    @media (min-width: $desktop-breakpoint) {
+      > * + * {
+        margin-top: 0;
+        margin-right: 8px;
+      }
+    }
+
+    &__socials {
+      > * + * {
+        margin-left: 32px;
+      }
+    }
+
+    &__copyright {
+      @media (min-width: $tablet-breakpoint) {
+        > * + * {
+          margin-left: 8px;
+        }
+      }
+    }
+
+    &__privacy {
+      > * + * {
+        margin-left: 32px;
+      }
+    }
+  }
+
+  .wrapper {
     > * + * {
       margin-top: 24px;
     }
