@@ -1,5 +1,7 @@
 <script setup lang="ts">
+    import { useLocale } from "@/composables/useLocale.ts";
 
+    const { t } = useLocale()
 </script>
 
 <template>
@@ -10,7 +12,7 @@
           57
         </span>
         <span>
-          {{ $t('stats_projects') }}
+          {{ t('stats_projects') }}
         </span>
       </div>
       <div class="experience__item">
@@ -18,7 +20,7 @@
           18
         </span>
         <span>
-          {{ $t('stats_tools')}}
+          {{ t('stats_tools')}}
         </span>
       </div>
       <div class="experience__item">
@@ -26,7 +28,7 @@
           7
         </span>
         <span>
-          {{ $t('stats_exp')}}
+          {{ t('stats_exp')}}
         </span>
       </div>
     </div>
@@ -40,7 +42,7 @@
   }
 
   .experience {
-    background: #1A1E23;
+    background: var(--color-darker-bg);
     border-radius: 80px;
     padding: 48px 32px;
     display: flex;
@@ -50,13 +52,13 @@
     &__item {
       display: flex;
       align-items: center;
-      font-size: $para-u;
+      font-size: $xs;
       white-space: wrap;
 
       &_number {
         display: block;
-        color: $brand-color;
-        font-size: $h2-u;
+        color: var(--color-brand);
+        font-size: $m;
         width: 42px;
         margin: 0 16px 0 0;
         text-align: right;

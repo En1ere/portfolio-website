@@ -1,13 +1,12 @@
-$main-white-color: #FFF;
-$brand-color: #12F7D6;
-$brand-color-second: #98FAEC;
-$color-bg: #292F36;
-$biggest-text: 114px;
-$h1-u: 72px;
-$h2-u: 36px;
-$article-u: 32px;
-$para-u: 18px;
+// font size
+$xl: 114px;
+$l: 72px;
+$m: 36px;
+$s: 32px;
+$xs: 18px;
+
+// breakpoints
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1280px;
 $wide-breakpoint: 1920px;
-$white-shadow: 0 0 10px 0 #ffffffc4;
+

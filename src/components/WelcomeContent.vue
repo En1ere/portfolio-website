@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
 import Cutaway from "@/components/Cutaway.vue";
-import Icon from "@/components/UI/icons/Icon.vue";
-import { socials } from "@/types/constants/socials.ts";
+import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
+import { type ISocial, socials } from "@/types/constants/socials.ts";
 import ExperienceStats from "@/components/ExperienceStats.vue";
 import { useLocale } from "@/composables/useLocale.ts";
 import { useTemplateRef } from "vue";
@@ -15,6 +15,7 @@ const rootRef = useTemplateRef<HTMLElement>('rootRef')
 defineExpose({
   rootRef,
 });
+const getIconName = (social: ISocial) => social.icon as IconName
 </script>
 
 <template>
@@ -42,7 +43,12 @@ defineExpose({
               :href="socials.telegram.link"
             >
               <span>{{ t('lets_talk') }}</span>
-              <div class="text-content__invite-icon"><Icon :name="socials.telegram.icon" hover-color="#98FAEC" /></div>
+              <div class="text-content__invite-icon">
+                <Icon
+                  :name="getIconName(socials.telegram)"
+                  hover-color="var(--color-brand-second)"
+                />
+              </div>
             </a>
           </div>
         </div>
@@ -67,8 +73,8 @@ defineExpose({
 
       @media (min-width: $desktop-breakpoint) {
         display: block;
-        color: $brand-color-second;
-        font-size: $biggest-text;
+        color: var(--color-brand-second);
+        font-size: $xl;
         margin: 0 0 64px;
       }
     }
@@ -105,22 +111,22 @@ defineExpose({
 
     &__title {
       position: relative;
-      font-size: $h2-u;
+      font-size: $m;
       margin: 22px 0 84px;
 
       @media (min-width: $tablet-breakpoint) {
-        font-size: $h1-u;
+        font-size: $l;
       }
 
       &_name {
-        color: $brand-color;
+        color: var(--color-brand);
       }
 
       &::before {
         content: '<h1>';
         position: absolute;
-        color: $brand-color-second;
-        font-size: $para-u;
+        color: var(--color-brand-second);
+        font-size: $xs;
         top: -22px;
         left: -16px;
       }
@@ -128,8 +134,8 @@ defineExpose({
       &::after {
         content: '</h1>';
         position: absolute;
-        color: $brand-color-second;
-        font-size: $para-u;
+        color: var(--color-brand-second);
+        font-size: $xs;
         bottom: -22px;
         left: -16px;
       }
@@ -142,8 +148,8 @@ defineExpose({
       &::before {
         content: '<p>';
         position: absolute;
-        color: $brand-color-second;
-        font-size: $para-u;
+        color: var(--color-brand-second);
+        font-size: $xs;
         top: -30px;
         left: -16px;
       }
@@ -151,15 +157,15 @@ defineExpose({
       &::after {
         content: '</p>';
         position: absolute;
-        color: $brand-color-second;
-        font-size: $para-u;
+        color: var(--color-brand-second);
+        font-size: $xs;
         bottom: -30px;
         left: -16px;
       }
     }
 
     &__invite {
-      color: $brand-color;
+      color: var(--color-brand);
       font-size: 42px;
       margin: 50px 0 0;
       display: flex;
@@ -167,7 +173,7 @@ defineExpose({
       transition: all 0.2s;
 
       &:hover {
-        color: $brand-color-second;
+        color: var(--color-brand-second);
       }
 
       & span {
@@ -186,9 +192,7 @@ defineExpose({
       align-items: center;
       width: 40px;
       height: 40px;
-      background: #43454D;
-      border-radius: 50%;
-      border: 0;
+      background: transparent;
       padding: 4px;
     }
   }

@@ -13,15 +13,19 @@ const scrollUp = () => window.scrollTo({
     class="scroll-up-button"
     @click="scrollUp"
   >
-    <Icon name="IconArrowUp" hover-color="#98FAEC" />
+    <Icon
+      name="IconArrowUp"
+      color="var(--arrow-scroll-up)"
+      hover-color="var(--color-brand-second)"
+    />
   </button>
 </template>
 
 <style scoped lang="scss">
   .scroll-up-button {
-    background: $color-bg;
+    background: var(--color-bg);
     border: 0;
-    box-shadow: $white-shadow;
+    box-shadow: var(--default-shadow);
     border-radius: 50%;
     width: 40px;
     height: 40px;

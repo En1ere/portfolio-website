@@ -42,14 +42,15 @@ defineExpose({
     position: relative;
     overflow: hidden;
     padding: 64px;
-    background: url("@/assets/img/skills/skills-background.png") center / cover no-repeat;
+    background: var(--skills-background);
 
     &::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgb(41 47 54 / 90%);
+      background: var(--skills-background-filter);
       z-index: 0;
+      backdrop-filter: blur(3px);
     }
 
     & > * {
@@ -65,8 +66,8 @@ defineExpose({
 
     &__title {
       position: relative;
-      font-size: $h1-u;
-      color: $brand-color;
+      font-size: $l;
+      color: var(--color-brand);
       padding-bottom: 16px;
 
       &::before {
@@ -76,7 +77,7 @@ defineExpose({
         bottom: 0;
         width: 160px;
         height: 2px;
-        background: $brand-color;
+        background: var(--color-brand);
 
         [lang^='ru'] & {
           width: 268px;
@@ -91,11 +92,11 @@ defineExpose({
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background: $brand-color;
-        box-shadow: 148px 0 0 $brand-color;
+        background: var(--color-brand);
+        box-shadow: 148px 0 0 var(--color-brand);
 
         [lang^='ru'] & {
-          box-shadow: 256px 0 0 $brand-color;
+          box-shadow: 256px 0 0 var(--color-brand);
         }
       }
     }

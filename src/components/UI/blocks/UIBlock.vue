@@ -9,13 +9,14 @@ import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
   }
 
   const { skill } = defineProps<{ skill: SkillProp }>()
+  const getIconName = (social: SkillProp) => social.icon as IconName
 </script>
 
 <template>
   <div class="UI-block">
     <Icon
       class="UI-block__icon"
-      :name="skill.icon as IconName"
+      :name="getIconName(skill)"
     />
     <span class="UI-block__title">
       {{ skill.title }}
@@ -30,8 +31,8 @@ import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
   .UI-block {
     border-radius: 16px;
     border: 0;
-    border-left: 16px solid #0C73B8;
-    background: $brand-color-second;
+    border-left: 16px solid var(--color-brand);
+    background: var(--color-brand-second);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,16 +46,16 @@ import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
 
     &__title, &__items {
       margin: 8px 0 0;
-      color: $color-bg;
+      color: var(--color-text-invert);
       white-space: nowrap;
     }
 
     &__title {
-      font-size: $article-u;
+      font-size: $s;
     }
 
     &__items {
-      font-size: $para-u;
+      font-size: $xs;
     }
   }
 </style>

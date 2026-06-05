@@ -79,7 +79,11 @@ defineExpose({
             class="slider__button slider__button--prev"
             type="button"
           >
-            <Icon name="IconArrowLeft" hover-color="#98FAEC" />
+            <Icon
+              name="IconArrowLeft"
+              color="var(--slider-control-stroke)"
+              hover-color="var(--color-brand-second)"
+            />
           </button>
 
           <div class="slider__pagination" />
@@ -88,7 +92,11 @@ defineExpose({
             class="slider__button slider__button--next"
             type="button"
           >
-            <Icon name="IconArrowRight" hover-color="#98FAEC" />
+            <Icon
+              name="IconArrowRight"
+              color="var(--slider-control-stroke)"
+              hover-color="var(--color-brand-second)"
+            />
           </button>
         </div>
       </div>
@@ -98,7 +106,7 @@ defineExpose({
 
 <style scoped lang="scss">
   .works-wrapper {
-    background: #1A1E23;
+    background: var(--color-darker-bg);
     padding: 64px;
   }
 
@@ -112,8 +120,8 @@ defineExpose({
 
       position: relative;
       display: inline-block;
-      font-size: $h1-u;
-      color: $brand-color;
+      font-size: $l;
+      color: var(--color-brand);
       padding-bottom: 16px;
 
       [lang^="ru"] & {
@@ -127,7 +135,7 @@ defineExpose({
         bottom: -2px;
         width: var(--line-width);
         height: 2px;
-        background: $brand-color;
+        background: var(--color-brand);
       }
 
       &::after {
@@ -138,8 +146,8 @@ defineExpose({
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background: $brand-color;
-        box-shadow: calc(var(--line-width) - 12px) 0 0 $brand-color;
+        background: var(--color-brand);
+        box-shadow: calc(var(--line-width) - 12px) 0 0 var(--color-brand);
       }
     }
 
@@ -168,13 +176,13 @@ defineExpose({
       position: absolute;
       top: 8px;
       right: 24px;
-      color: $brand-color;
-      border-bottom: 2px solid white;
+      color: var(--color-brand);
+      border-bottom: 2px solid var(--color-text);
       padding: 0 0 4px;
       transition: all 0.2s;
 
       &:hover {
-        color: $brand-color-second;
+        color: var(--color-brand-second);
       }
 
       @media (min-width: $tablet-breakpoint) {
@@ -193,7 +201,7 @@ defineExpose({
         width: 16px;
         height: 16px;
         margin-left: 8px;
-        background-image: url("@/assets/img/icons/icon-mouse-pointer.svg");
+        background-image: var(--icon-pointer);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
@@ -223,15 +231,24 @@ defineExpose({
       height: 32px;
       border-radius: 50%;
       border: 0;
-      background: $color-bg;
+      background: var(--slider-control-background);
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 4px;
+      padding: 4px 0 4px 4px;
 
       @media (min-width: $tablet-breakpoint) {
         width: 72px;
         height: 72px;
+        padding: 4px 0 4px 6px;
+      }
+
+      &:first-child {
+        padding: 4px 4px 4px 0;
+
+        @media (min-width: $tablet-breakpoint) {
+          padding: 4px 6px 4px 0;
+        }
       }
     }
   }

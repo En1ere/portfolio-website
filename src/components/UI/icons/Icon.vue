@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, ref} from 'vue';
+import { computed, ref } from 'vue';
 import IconMail from "@/components/UI/icons/IconMail.vue";
 import IconGeo from "@/components/UI/icons/IconGeo.vue";
 import IconVk from "@/components/UI/icons/IconVk.vue";
@@ -18,6 +18,8 @@ import IconSquares from "@/components/UI/icons/IconSquares.vue";
 import IconProfile from "@/components/UI/icons/IconProfile.vue";
 import IconBrackets from "@/components/UI/icons/IconBrackets.vue";
 import IconCheck from "@/components/UI/icons/IconCheck.vue";
+import IconSun from "@/components/UI/icons/IconSun.vue";
+import IconMoon from "@/components/UI/icons/IconMoon.vue";
 import type { TClassValue } from "@/types/style.ts";
 
 const icons = {
@@ -39,6 +41,8 @@ const icons = {
   IconProfile,
   IconBrackets,
   IconCheck,
+  IconSun,
+  IconMoon,
 } as const;
 export type IconName = keyof typeof icons
 

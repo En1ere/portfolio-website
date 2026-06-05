@@ -2,7 +2,7 @@
 const { color } = defineProps({
   color: {
     type: String,
-    default: "#292F36",
+    default: "var(--color-text-invert)",
   },
 })
 </script>

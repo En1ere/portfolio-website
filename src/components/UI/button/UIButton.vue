@@ -28,24 +28,24 @@ const { variant = 'primary', size = 'm' } = defineProps<{
   border: none;
   border-radius: 20px;
   background: transparent;
-  color: $main-white-color;
+  color: var(--color-text);
   cursor: pointer;
   transition: all 0.2s;
 
   &.primary {
-    background: $brand-color;
-    border: 2px solid $brand-color;
-    color: $color-bg;
+    background: var(--color-brand);
+    border: 2px solid var(--color-brand);
+    color: var(--color-text-invert);
 
     &:hover {
-      background: $brand-color-second;
-      border: 2px solid $brand-color-second;
+      background: var(--color-brand-second);
+      border: 2px solid var(--color-brand-second);
     }
   }
 
   &.secondary {
-    background: $color-bg;
-    border: 2px solid $brand-color;
+    background: var(--color-bg);
+    border: 2px solid var(--color-brand);
   }
 
   &.empty {
@@ -54,10 +54,11 @@ const { variant = 'primary', size = 'm' } = defineProps<{
     padding: 0;
 
     &:hover {
-      color: $brand-color-second;
+      color: var(--color-brand-second);
     }
+
     &:active {
-      color: $brand-color;
+      color: var(--color-brand);
     }
   }
 

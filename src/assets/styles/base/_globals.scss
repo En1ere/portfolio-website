@@ -24,13 +24,13 @@
 * {
   &::-webkit-scrollbar {
     width: 5px;
-    background: $main-white-color;
+    background: var(--color-text);
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $color-bg;
+    background: var(--color-bg);
     border-radius: 8px;
-    border: 1px solid #FFF;
+    border: 1px solid var(--color-text);
   }
 }
 
@@ -39,9 +39,9 @@ body {
   height: 100vh;
   font-family: Ubuntu, sans-serif;
   font-weight: 400;
-  font-size: $para-u;
-  background: $color-bg;
-  color: $main-white-color;
+  font-size: $xs;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 #app {
@@ -55,6 +55,7 @@ main {
   @media(min-width: $tablet-breakpoint) {
     min-height: calc(100vh - (86px + 161px));
   }
+
   @media(min-width: $desktop-breakpoint) {
     min-height: calc(100vh - (86px + 105px));
   }

@@ -52,7 +52,7 @@
 
 <style scoped lang="scss">
   .about-wrapper {
-    background: url("@/assets/img/about/about_background.png") center top;
+    background: var(--about-background);
     padding: 0 22px;
   }
 
@@ -64,22 +64,22 @@
 
     & h1 {
       width: min-content;
-      font-size: $article-u;
-      background: $color-bg;
-      border: 4px solid $brand-color;
+      font-size: $s;
+      background: var(--color-bg);
+      border: 4px solid var(--color-brand);
       border-radius: 40px 0;
       white-space: nowrap;
       padding: 16px 40px;
 
       @media (min-width: $tablet-breakpoint) {
-        font-size: $h1-u;
+        font-size: $l;
       }
     }
 
     & p {
       position: relative;
       margin: 32px 0 0;
-      background: $color-bg;
+      background: var(--color-bg);
       border-radius: 40px;
       padding: 58px 24px;
       display: flex;
@@ -98,8 +98,8 @@
       &::before {
         content: '<p>';
         position: absolute;
-        color: $brand-color-second;
-        font-size: $para-u;
+        color: var(--color-brand-second);
+        font-size: $xs;
         top: 24px;
         left: 24px;
       }
@@ -107,8 +107,8 @@
       &::after {
         content: '</p>';
         position: absolute;
-        color: $brand-color-second;
-        font-size: $para-u;
+        color: var(--color-brand-second);
+        font-size: $xs;
         bottom: 24px;
         left: 24px;
       }
@@ -131,11 +131,11 @@
     }
 
     & .greetings {
-      font-size: $article-u;
+      font-size: $s;
     }
   }
 
   .highlight {
-    color: $brand-color;
+    color: var(--color-brand);
   }
 </style>

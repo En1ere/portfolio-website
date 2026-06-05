@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
 import { type INavRoute, navItems } from "@/router/routes";
-import {useLocale} from "@/composables/useLocale.ts";
+import { useLocale } from "@/composables/useLocale.ts";
 
 const route = useRoute();
 const { t } = useLocale()
@@ -25,11 +25,12 @@ const isCurrent = (item:INavRoute) => item.path === route.path;
 <style lang="scss" scoped>
   .navigation {
     display: flex;
+    align-items: center;
     gap: 8px;
     font-size: 16px;
 
     @media (min-width: $tablet-breakpoint) {
-      font-size: $article-u;
+      font-size: 20px;
       gap: 16px;
     }
 
@@ -37,14 +38,15 @@ const isCurrent = (item:INavRoute) => item.path === route.path;
       transition: all 0.2s;
 
       &:hover {
-        color: $brand-color-second;
+        color: var(--color-brand-second);
       }
+
       &:active {
-        color: $brand-color;
+        color: var(--color-brand);
       }
 
       &.active {
-        color: $brand-color;
+        color: var(--color-brand);
       }
     }
   }

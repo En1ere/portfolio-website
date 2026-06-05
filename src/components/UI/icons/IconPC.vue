@@ -2,7 +2,7 @@
 const { color } = defineProps({
   color: {
     type: String,
-    default: "#292F36",
+    default: "var(--color-text-invert)",
   },
 })
 </script>
@@ -12,7 +12,6 @@ const { color } = defineProps({
     width="32"
     height="32"
     viewBox="0 0 32 32"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <g clip-path="url(#clip0_49_8374)">

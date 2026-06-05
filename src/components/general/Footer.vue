@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { computed } from "vue";
-  import { socials } from "@/types/constants/socials.ts";
-  import Icon from "@/components/UI/icons/Icon.vue";
+  import { type ISocial, socials } from "@/types/constants/socials.ts";
+  import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
   import UIButton from "@/components/UI/button/UIButton.vue";
   import { useModals } from "@/composables/useModals.ts";
   import { useLocale } from "@/composables/useLocale.ts";
@@ -11,6 +11,8 @@
   const appVersion = `v.${import.meta.env.PACKAGE_VERSION}`
 
   const { openModal } = useModals();
+
+  const getIconName = (social: ISocial) => social.icon as IconName
 </script>
 
 <template>
@@ -25,8 +27,8 @@
           target="_blank"
         >
           <Icon
-            color="#292F36"
-            :name="social.icon"
+            color="var(--color-text-invert)"
+            :name="getIconName(social)"
           />
         </a>
       </div>
@@ -63,7 +65,7 @@
 
 <style scoped lang="scss">
   .footer-wrapper {
-    background: #1A1E23;
+    background: var(--color-darker-bg);
     width: 100%;
     padding: 0 24px;
   }
@@ -95,7 +97,7 @@
       min-width: 32px;
       height: 32px;
       min-height: 32px;
-      background: $brand-color-second;
+      background: var(--color-brand-second);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -105,7 +107,7 @@
       transition: all 0.2s;
 
       &:hover {
-        background: $brand-color;
+        background: var(--color-brand);
       }
     }
 
@@ -135,7 +137,7 @@
       right: 50%;
       transform: translate(50%, -30%);
       font-size: 12px;
-      color: $brand-color;
+      color: var(--color-brand);
 
       @media (min-width: $tablet-breakpoint) {
         transform: translate(50%, 0);

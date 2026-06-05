@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
-import {blockKeys, blocks, type IBlock, type TBlockTitle} from "@/types/constants/homePage.ts";
+import { blockKeys, blocks, type IBlock, type TBlockTitle } from "@/types/constants/homePage.ts";
 import type { SectionRefsMap } from "@/pages/HomePage.vue";
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
@@ -83,8 +83,8 @@ onBeforeUnmount(() => {
       @click="clickHandler(blockKey)"
     >
       <Icon
-        :color="isActive(blockKey) ? '#292F36' : '#FFFFFF'"
-        :hover-color="isActive(blockKey) ? '' : '#98FAEC'"
+        :color="isActive(blockKey) ? 'var(--color-text-invert)' : 'var(--color-text)'"
+        :hover-color="isActive(blockKey) ? '' : 'var(--color-brand-second)'"
         :name="getIconName(block)"
       />
     </button>
@@ -101,7 +101,7 @@ onBeforeUnmount(() => {
     gap: 24px;
     z-index: 1;
     display: none;
-    box-shadow: $white-shadow;
+    box-shadow: var(--default-shadow);
 
     @media (min-width: $tablet-breakpoint) {
       top: 116px;
@@ -128,7 +128,7 @@ onBeforeUnmount(() => {
       transition: all 0.2s;
 
       &.active {
-        background: #FFF;
+        background: var(--color-bg-invert);
       }
     }
   }
