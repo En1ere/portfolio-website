@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import Navigation from "@/components/general/Navigation.vue";
+  // import Navigation from "@/components/general/Navigation.vue";
   import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
   import { type ISocial, socials } from "@/types/constants/socials.ts";
   import LangSelector from "@/components/general/LangSelector.vue";
@@ -22,7 +22,7 @@
 
       <div class="header__nav">
         <div class="container">
-          <Navigation />
+<!--          <Navigation />-->
           <ThemeSwitcher />
         </div>
         <LangSelector />
