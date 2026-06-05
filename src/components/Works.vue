@@ -81,6 +81,7 @@ defineExpose({
           >
             <Icon
               name="IconArrowLeft"
+              color="var(--slider-control-stroke)"
               hover-color="var(--color-brand-second)"
             />
           </button>
@@ -93,6 +94,7 @@ defineExpose({
           >
             <Icon
               name="IconArrowRight"
+              color="var(--slider-control-stroke)"
               hover-color="var(--color-brand-second)"
             />
           </button>
@@ -175,7 +177,7 @@ defineExpose({
       top: 8px;
       right: 24px;
       color: var(--color-brand);
-      border-bottom: 2px solid white;
+      border-bottom: 2px solid var(--color-text);
       padding: 0 0 4px;
       transition: all 0.2s;
 
@@ -199,7 +201,7 @@ defineExpose({
         width: 16px;
         height: 16px;
         margin-left: 8px;
-        background-image: url("@/assets/img/icons/icon-mouse-pointer.svg");
+        background-image: var(--icon-pointer);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
@@ -229,15 +231,24 @@ defineExpose({
       height: 32px;
       border-radius: 50%;
       border: 0;
-      background: var(--color-bg);
+      background: var(--slider-control-background);
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 4px;
+      padding: 4px 0 4px 4px;
 
       @media (min-width: $tablet-breakpoint) {
         width: 72px;
         height: 72px;
+        padding: 4px 0 4px 6px;
+      }
+
+      &:first-child {
+        padding: 4px 4px 4px 0;
+
+        @media (min-width: $tablet-breakpoint) {
+          padding: 4px 6px 4px 0;
+        }
       }
     }
   }

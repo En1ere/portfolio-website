@@ -101,7 +101,7 @@ onBeforeUnmount(() => {
     gap: 24px;
     z-index: 1;
     display: none;
-    box-shadow: $white-shadow;
+    box-shadow: var(--default-shadow);
 
     @media (min-width: $tablet-breakpoint) {
       top: 116px;

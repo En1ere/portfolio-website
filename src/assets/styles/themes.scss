@@ -1,26 +1,62 @@
 :root {
   color-scheme: dark light;
 
+  // text
   --color-text: #f4f7f6;
   --color-text-hover: #292f36;
   --color-text-invert: #292f36;
   --color-text-inver-hover: #f4f7f6;
+
+  // accent
   --color-brand: #12f7d6;
   --color-brand-second: #98faec;
+
+  // background
   --color-bg: #292f36;
   --color-darker-bg: #1A1E23;
   --color-bg-invert: #f4f7f6;
   --color-darker-bg-invert: #1A1E23;
   --color-modal: #f4f7f6;
+
+  // other
+  --default-shadow: 0 0 10px 0 #ffffffc4;
+
+  // elements
+  --about-background: url("@/assets/img/about/about_background.png") center top;
+  --skills-background: url("@/assets/img/skills/skills-background.png") center / cover no-repeat;
+  --skills-background-filter: rgb(41 47 54 / 90%);
+  --arrow-scroll-up: var(--color-brand);
+  --icon-pointer: url("@/assets/img/icons/icon-mouse-pointer.svg");
+  --slider-control-background: var(--color-bg);
+  --slider-control-stroke: var(--color-brand);
 }
 
 html[data-theme='light'] {
+  // text
   --color-text: #31404a;
   --color-text-hover: #f4f7f6;
   --color-text-invert: #f4f7f6;
   --color-text-inver-hover: #292f36;
-  --color-brand: #12f7d6;
-  --color-brand-second: #7fe7da;
-  --color-bg: #f4f7f6;
-  --color-darker-bg: #292f36;
+
+  // accent
+  --color-brand: #4BAEF2;
+  --color-brand-second: #4776AE;
+
+  // background
+  --color-bg: #FFF;
+  --color-darker-bg: #F0F9FF;
+  --color-bg-invert: #292f36;
+  --color-darker-bg-invert: #1A1E23;
+
+  // other
+  --default-shadow: 0 0 10px 0 #00000034;
+
+  // elements
+  --about-background: url("@/assets/img/about/about_background_light.png") center top;
+  --skills-background: url("@/assets/img/skills/skills-background-light.png") center / cover no-repeat;
+  --skills-background-filter: rgb(190 202 215 / 60%);
+  --arrow-scroll-up: var(--color-bg-invert);
+  --icon-pointer: url("@/assets/img/icons/icon-mouse-pointer-light.svg");
+  --slider-control-background: var(--color-brand);
+  --slider-control-stroke: var(--color-bg);
 }

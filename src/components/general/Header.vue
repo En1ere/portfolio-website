@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  // import Navigation from "@/components/general/Navigation.vue";
+  import Navigation from "@/components/general/Navigation.vue";
   import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
   import { type ISocial, socials } from "@/types/constants/socials.ts";
   import LangSelector from "@/components/general/LangSelector.vue";
@@ -20,9 +20,11 @@
         </RouterLink>
       </div>
 
-      <ThemeSwitcher />
       <div class="header__nav">
-        <!--        <Navigation />-->
+        <div class="container">
+          <Navigation />
+          <ThemeSwitcher />
+        </div>
         <LangSelector />
         <a
           class="header__git"
@@ -58,6 +60,16 @@
     }
   }
 
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media (min-width: $tablet-breakpoint) {
+      flex-direction: row;
+    }
+  }
+
   .header {
     display: flex;
     justify-content: space-between;
@@ -80,10 +92,12 @@
     }
 
     &__logo {
+      max-width: 95px;
       color: var(--color-brand);
 
       @media (min-width: $tablet-breakpoint) {
         font-size: $s;
+        max-width: unset;
       }
     }
 

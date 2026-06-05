@@ -42,14 +42,15 @@ defineExpose({
     position: relative;
     overflow: hidden;
     padding: 64px;
-    background: url("@/assets/img/skills/skills-background.png") center / cover no-repeat;
+    background: var(--skills-background);
 
     &::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgb(41 47 54 / 90%);
+      background: var(--skills-background-filter);
       z-index: 0;
+      backdrop-filter: blur(3px);
     }
 
     & > * {

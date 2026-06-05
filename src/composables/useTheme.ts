@@ -1,8 +1,8 @@
-import { computed } from 'vue'
+import { computed, type ComputedRef } from 'vue'
 import { useColorMode } from '@vueuse/core'
+import type { TThemeMode } from "@/types/constants/themes.ts";
 
-export type TThemeMode = 'light' | 'dark' | 'system'
-export type TResolvedTheme = 'light' | 'dark'
+
 
 export function useTheme() {
   const mode = useColorMode({
@@ -11,21 +11,18 @@ export function useTheme() {
     storageKey: 'theme',
   })
 
-  const selectedTheme = computed<TThemeMode>({
-    get: () => (mode.store.value === 'auto' ? 'system' : mode.store.value) as TThemeMode,
-    set: (value) => {
-      mode.store.value = value === 'system' ? 'auto' : value
-    },
-  })
+  // const selectedTheme = computed<TThemeMode>(
+  //   set: (value: TThemeMode) => {
+  //     mode.store.value = value === 'system' ? 'auto' : value
+  //   },
+  // })
 
-  const resolvedTheme = computed<TResolvedTheme>(() => {
-    const value = mode.store.value === 'auto' ? mode.system.value : mode.store.value
-    return value === 'dark' ? 'dark' : 'light'
-  })
+  const getSelectedTheme: ComputedRef<string | "light" | "dark"> = computed(() => mode.store.value === 'auto' ? 'system' : mode.store.value)
+  const setTheme = (themeKey: TThemeMode) => mode.store.value = themeKey === 'system' ? 'auto' : themeKey
+
 
   return {
-    selectedTheme,
-    resolvedTheme,
-    systemTheme: mode.system,
+    getSelectedTheme,
+    setTheme,
   }
 }

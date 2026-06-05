@@ -25,11 +25,12 @@ const isCurrent = (item:INavRoute) => item.path === route.path;
 <style lang="scss" scoped>
   .navigation {
     display: flex;
+    align-items: center;
     gap: 8px;
     font-size: 16px;
 
     @media (min-width: $tablet-breakpoint) {
-      font-size: $s;
+      font-size: 20px;
       gap: 16px;
     }
 

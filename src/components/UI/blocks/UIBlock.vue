@@ -31,7 +31,7 @@ import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
   .UI-block {
     border-radius: 16px;
     border: 0;
-    border-left: 16px solid #0C73B8;
+    border-left: 16px solid var(--color-brand);
     background: var(--color-brand-second);
     display: flex;
     flex-direction: column;

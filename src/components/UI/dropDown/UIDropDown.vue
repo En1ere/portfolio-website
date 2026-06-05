@@ -84,6 +84,7 @@ onBeforeUnmount(() => {
       {{ selectedLabel }}
       <Icon
         :class="['ui-drop-down__icon', { active: isOpen }]"
+        color="var(--color-text)"
         name="IconArrowDown"
       />
     </button>
@@ -124,9 +125,9 @@ onBeforeUnmount(() => {
 .list-wrapper {
   position: absolute;
   top: 55px;
-  background: var(--color-bg-invert);
+  background: var(--color-bg);
   border-radius: 24px;
-  border: 0;
+  border: 1px solid var(--color-bg-invert);
   width: 100%;
   transition: all 0.2s;
   padding: 16px 0;
@@ -158,10 +159,10 @@ onBeforeUnmount(() => {
   width: 100%;
   min-height: 40px;
   padding: 4px 16px;
-  border: 1px solid var(--color-text-invert);
+  border: 1px solid var(--color-bg-invert);
   border-radius: 24px;
-  background: var(--color-bg-invert);
-  color: var(--color-text-invert);
+  background: var(--color-bg);
+  color: var(--color-text);
   display: flex;
   align-items: center;
 
@@ -174,6 +175,7 @@ onBeforeUnmount(() => {
     color: var(--color-text);
     padding: 8px 16px;
     transition: all 0.2s;
+    cursor: pointer;
 
     &:hover {
       background: var(--color-text);

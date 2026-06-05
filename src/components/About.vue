@@ -52,7 +52,7 @@
 
 <style scoped lang="scss">
   .about-wrapper {
-    background: url("@/assets/img/about/about_background.png") center top;
+    background: var(--about-background);
     padding: 0 22px;
   }
 

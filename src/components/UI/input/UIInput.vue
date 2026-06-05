@@ -35,6 +35,7 @@
     <Icon
       class="input-icon"
       name="IconSearch"
+      color="var(--color-text)"
     />
   </div>
 </template>
@@ -46,9 +47,9 @@
     align-items: center;
     width: 100%;
     height: 40px;
-    background: var(--color-bg-invert);
+    background: var(--color-bg);
     border-radius: 24px;
-    border: 1px solid var(--color-text);
+    border: 1px solid var(--color-bg-invert);
     overflow: hidden;
     padding: 0 16px 0 0;
   }
