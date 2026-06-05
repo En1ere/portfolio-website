@@ -23,31 +23,43 @@ const isCurrent = (item:INavRoute) => item.path === route.path;
 </template>
 
 <style lang="scss" scoped>
-  .navigation {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
 
-    @media (min-width: $tablet-breakpoint) {
-      font-size: 20px;
-      gap: 16px;
+  @media (min-width: $tablet-breakpoint) {
+    font-size: 20px;
+    gap: 16px;
+  }
+
+  @supports not (gap: 8px) {
+    > * + * {
+      margin-left: 8px;
     }
 
-    &__item {
-      transition: all 0.2s;
-
-      &:hover {
-        color: var(--color-brand-second);
-      }
-
-      &:active {
-        color: var(--color-brand);
-      }
-
-      &.active {
-        color: var(--color-brand);
+    @media (min-width: $tablet-breakpoint) {
+      > * + * {
+        margin-left: 16px;
       }
     }
   }
+
+  &__item {
+    transition: all 0.2s;
+
+    &:hover {
+      color: var(--color-brand-second);
+    }
+
+    &:active {
+      color: var(--color-brand);
+    }
+
+    &.active {
+      color: var(--color-brand);
+    }
+  }
+}
 </style>

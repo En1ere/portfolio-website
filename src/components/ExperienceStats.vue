@@ -36,33 +36,39 @@
 </template>
 
 <style scoped lang="scss">
-  .experience-wrapper {
-    display: flex;
-    justify-content: center;
-  }
+.experience-wrapper {
+  display: flex;
+  justify-content: center;
+}
 
-  .experience {
-    background: var(--color-darker-bg);
-    border-radius: 80px;
-    padding: 48px 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
+.experience {
+  background: var(--color-darker-bg);
+  border-radius: 80px;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 
-    &__item {
-      display: flex;
-      align-items: center;
-      font-size: $xs;
-      white-space: wrap;
-
-      &_number {
-        display: block;
-        color: var(--color-brand);
-        font-size: $m;
-        width: 42px;
-        margin: 0 16px 0 0;
-        text-align: right;
-      }
+  @supports not (gap: 48px) {
+    > * + * {
+      margin-top: 48px;
     }
   }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    font-size: $xs;
+    white-space: wrap;
+
+    &_number {
+      display: block;
+      color: var(--color-brand);
+      font-size: $m;
+      width: 42px;
+      margin: 0 16px 0 0;
+      text-align: right;
+    }
+  }
+}
 </style>

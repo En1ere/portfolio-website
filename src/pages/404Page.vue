@@ -24,6 +24,7 @@ const { t } = useLocale()
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 64px 0;
 
     &__code {
       font-size: 140px;

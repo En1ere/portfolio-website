@@ -123,6 +123,7 @@ onBeforeUnmount(() => {
 }
 
 .list-wrapper {
+  z-index: 1;
   position: absolute;
   top: 55px;
   background: var(--color-bg);

@@ -88,104 +88,124 @@ const getIcon = (social: ISocial) => social.icon as IconName
 </template>
 
 <style scoped lang="scss">
-  .cutaway {
+.cutaway {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 4px solid var(--color-text);
+  border-radius: 100px 0;
+  box-shadow: -4px -4px 3px 0 var(--color-brand);
+  padding: 36px 0;
+
+  @media (min-width: $tablet-breakpoint) {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__img-wrapper {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 3px solid var(--color-brand);
+    margin: 0 0 16px;
+    overflow: hidden;
+  }
+
+  &__name {
+    font-family: Ubuntu-Medium, sans-serif;
+    font-size: $m;
+  }
+
+  &__position {
+    font-size: $xs;
+    margin: 16px 0 0;
+  }
+}
+
+.socials {
+  margin: 32px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @supports not (gap: 8px) {
+    > * + * {
+      margin-top: 8px;
+    }
+  }
+
+  &__icon {
+    width: 16px;
+    height: 14px;
+    margin: 0 16px 0 0;
+  }
+}
+
+.tags {
+  margin: 32px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+
+  @supports not (gap: 8px) {
+    margin: 24px 0 0 -8px;
+
+    > * {
+      margin: 8px 0 0 8px;
+    }
+  }
+
+  &__item {
+    color: var(--color-text-invert);
+    background: var(--color-brand);
+    padding: 0 16px;
+    font-size: $xs;
+    height: 36px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    border: 4px solid var(--color-text);
-    border-radius: 100px 0;
-    box-shadow: -4px -4px 3px 0 var(--color-brand);
-    padding: 36px 0;
-
-    @media (min-width: $tablet-breakpoint) {
-      max-width: 320px;
-      margin: 0 auto;
-    }
-  }
-
-  .profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    &__img-wrapper {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      border: 3px solid var(--color-brand);
-      margin: 0 0 16px;
-      overflow: hidden;
-    }
-
-    &__name {
-      font-family: Ubuntu-Medium, sans-serif;
-      font-size: $m;
-    }
-
-    &__position {
-      font-size: $xs;
-      margin: 16px 0 0;
-    }
-  }
-
-  .socials {
-    margin: 32px 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-
-    &__icon {
-      width: 16px;
-      height: 14px;
-      margin: 0 16px 0 0;
-    }
-  }
-
-  .tags {
-    margin: 32px 0 0;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
-
-    &__item {
-      color: var(--color-text-invert);
-      background: var(--color-brand);
-      padding: 0 16px;
-      font-size: $xs;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 0;
-      border-radius: 16px;
-    }
+    border: 0;
+    border-radius: 16px;
   }
+}
 
-  .download {
-    margin: 32px 0 0;
+.download {
+  margin: 32px 0 0;
 
-    &__button{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      background: var(--color-text);
-      border-radius: 32px;
-      height: 56px;
-      color: var(--color-text-invert);
-      white-space: nowrap;
-      padding: 0 32px;
-      transition: all 0.2s;
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: var(--color-text);
+    border-radius: 32px;
+    height: 56px;
+    color: var(--color-text-invert);
+    white-space: nowrap;
+    padding: 0 32px;
+    transition: all 0.2s;
 
-      &:hover {
-        background: var(--color-brand-second);
-      }
-
-      & svg {
-        width: 20px;
-        height: 20px;
+    @supports not (gap: 16px) {
+      > * + * {
+        margin-left: 16px;
       }
     }
+
+    &:hover {
+      background: var(--color-brand-second);
+    }
+
+    & svg {
+      width: 20px;
+      height: 20px;
+    }
   }
+}
 </style>

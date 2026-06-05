@@ -22,7 +22,7 @@
 
       <div class="header__nav">
         <div class="container">
-<!--          <Navigation />-->
+          <!--          <Navigation />-->
           <ThemeSwitcher />
         </div>
         <LangSelector />
@@ -52,75 +52,107 @@
 </template>
 
 <style scoped lang="scss">
-  .header-wrapper {
-    padding: 24px 12px 0;
+.header-wrapper {
+  padding: 24px 12px 0;
 
-    @media (min-width: $desktop-breakpoint) {
-      padding: 24px 36px 0;
-    }
+  @media (min-width: $desktop-breakpoint) {
+    padding: 24px 36px 0;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @media (min-width: $tablet-breakpoint) {
+    flex-direction: row;
   }
 
-  .container {
+  @supports not (gap: 8px) {
+    > * + * {
+      margin-top: 8px;
+    }
+
+    @media (min-width: $tablet-breakpoint) {
+      > * + * {
+        margin-top: 0;
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #43454D;
+  padding: 0 0 24px;
+
+  &__nav {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 8px;
 
     @media (min-width: $tablet-breakpoint) {
-      flex-direction: row;
+      gap: 16px;
     }
-  }
 
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #43454D;
-    padding: 0 0 24px;
+    @media (min-width: $desktop-breakpoint) {
+      gap: 24px;
+    }
 
-    &__nav {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    @supports not (gap: 8px) {
+      > * + * {
+        margin-left: 8px;
+      }
 
       @media (min-width: $tablet-breakpoint) {
-        gap: 16px;
+        > * + * {
+          margin-left: 16px;
+        }
       }
 
       @media (min-width: $desktop-breakpoint) {
-        gap: 24px;
-      }
-    }
-
-    &__logo {
-      max-width: 95px;
-      color: var(--color-brand);
-
-      @media (min-width: $tablet-breakpoint) {
-        font-size: $s;
-        max-width: unset;
-      }
-    }
-
-    &__git {
-      display: block;
-    }
-
-    &__tg {
-      display: none;
-
-      @media (min-width: $tablet-breakpoint) {
-        display: block;
-      }
-    }
-
-    &__git, &__tg {
-      width: 30px;
-      height: 30px;
-
-      @media (min-width: $tablet-breakpoint) {
-        width: 30px;
-        height: 30px;
+        > * + * {
+          margin-left: 24px;
+        }
       }
     }
   }
+
+  &__logo {
+    max-width: 95px;
+    color: var(--color-brand);
+
+    @media (min-width: $tablet-breakpoint) {
+      font-size: $s;
+      max-width: unset;
+    }
+  }
+
+  &__git {
+    display: block;
+  }
+
+  &__tg {
+    display: none;
+
+    @media (min-width: $tablet-breakpoint) {
+      display: block;
+    }
+  }
+
+  &__git,
+  &__tg {
+    width: 30px;
+    height: 30px;
+
+    @media (min-width: $tablet-breakpoint) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
 </style>

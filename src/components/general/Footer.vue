@@ -64,104 +64,150 @@
 </template>
 
 <style scoped lang="scss">
-  .footer-wrapper {
-    background: var(--color-darker-bg);
-    width: 100%;
-    padding: 0 24px;
+.footer-wrapper {
+  background: var(--color-darker-bg);
+  width: 100%;
+  padding: 0 24px;
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0;
+  border-top: 1px solid #43454D;
+
+  @media (min-width: $desktop-breakpoint) {
+    flex-direction: row-reverse;
+    gap: 8px;
+    padding: 24px 126px;
   }
 
-  .footer {
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    padding: 24px 0;
-    border-top: 1px solid #43454D;
+  @supports not (gap: 24px) {
+    > * + * {
+      margin-top: 24px;
+    }
 
     @media (min-width: $desktop-breakpoint) {
-      flex-direction: row-reverse;
-      gap: 8px;
-      padding: 24px 126px;
-    }
-
-    &__socials {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 32px;
-    }
-
-    &__social-item {
-      width: 32px;
-      min-width: 32px;
-      height: 32px;
-      min-height: 32px;
-      background: var(--color-brand-second);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      border: 0;
-      padding: 8px;
-      transition: all 0.2s;
-
-      &:hover {
-        background: var(--color-brand);
-      }
-    }
-
-    &__copyright {
-      text-align: center;
-      white-space: nowrap;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      @media (min-width: $tablet-breakpoint) {
-        flex-direction: row;
-        gap: 8px;
-      }
-    }
-
-    &__privacy {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-    }
-
-    &__version {
-      position: absolute;
-      bottom: 0;
-      right: 50%;
-      transform: translate(50%, -30%);
-      font-size: 12px;
-      color: var(--color-brand);
-
-      @media (min-width: $tablet-breakpoint) {
-        transform: translate(50%, 0);
-        bottom: 9%;
-        right: 50%;
-      }
-
-      @media (min-width: $desktop-breakpoint) {
-        transform: translate(0, 0);
-        right: 0;
-        bottom: 43%;
+      > * + * {
+        margin-top: 0;
+        margin-right: 8px;
       }
     }
   }
 
-  .wrapper {
-    width: 100%;
+  &__socials {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 32px;
+
+    @supports not (gap: 32px) {
+      > * + * {
+        margin-left: 32px;
+      }
+    }
+  }
+
+  &__social-item {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    min-height: 32px;
+    background: var(--color-brand-second);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 0;
+    padding: 8px;
+    transition: all 0.2s;
+
+    &:hover {
+      background: var(--color-brand);
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+    white-space: nowrap;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
 
     @media (min-width: $tablet-breakpoint) {
       flex-direction: row;
+      gap: 8px;
+    }
+
+    @supports not (gap: 8px) {
+      @media (min-width: $tablet-breakpoint) {
+        > * + * {
+          margin-left: 8px;
+        }
+      }
     }
   }
+
+  &__privacy {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+
+    @supports not (gap: 32px) {
+      > * + * {
+        margin-left: 32px;
+      }
+    }
+  }
+
+  &__version {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, -30%);
+    font-size: 12px;
+    color: var(--color-brand);
+
+    @media (min-width: $tablet-breakpoint) {
+      transform: translate(50%, 0);
+      bottom: 9%;
+      right: 50%;
+    }
+
+    @media (min-width: $desktop-breakpoint) {
+      transform: translate(0, 0);
+      right: 0;
+      bottom: 43%;
+    }
+  }
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  @media (min-width: $tablet-breakpoint) {
+    flex-direction: row;
+  }
+
+  @supports not (gap: 24px) {
+    > * + * {
+      margin-top: 24px;
+    }
+
+    @media (min-width: $tablet-breakpoint) {
+      > * + * {
+        margin-top: 0;
+        margin-left: 24px;
+      }
+    }
+  }
+}
 </style>

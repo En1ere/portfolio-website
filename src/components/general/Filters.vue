@@ -60,41 +60,79 @@ import { EProjectCategoriesFilter, EProjectStatusesFilter, type FiltersState } f
 </template>
 
 <style scoped lang="scss">
-  .filters {
-    padding: 24px;
-    width: 100%;
+.filters {
+  padding: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 350px;
+  gap: 8px;
+
+  @media (min-width: $tablet-breakpoint) {
+    max-width: 650px;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    max-width: 1100px;
+    gap: 24px;
+  }
+
+  @supports not (gap: 8px) {
+    > * + * {
+      margin-top: 8px;
+    }
+
+    @media (min-width: $desktop-breakpoint) {
+      > * + * {
+        margin-top: 0;
+        margin-left: 16px;
+      }
+    }
+
+    @media (min-width: $desktop-breakpoint) {
+      > * + * {
+        margin-left: 24px;
+      }
+    }
+  }
+
+  &__selectors {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 350px;
     gap: 8px;
+    width: 100%;
 
     @media (min-width: $tablet-breakpoint) {
-      max-width: 650px;
       flex-direction: row;
       gap: 16px;
     }
 
-    @media (min-width: $tablet-breakpoint) {
-      max-width: 1100px;
+    @media (min-width: $desktop-breakpoint) {
       gap: 24px;
     }
 
-    &__selectors {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      width: 100%;
-
-      @media (min-width: $tablet-breakpoint) {
-        flex-direction: row;
-        gap: 16px;
+    @supports not (gap: 8px) {
+      > * + * {
+        margin-top: 8px;
       }
 
       @media (min-width: $tablet-breakpoint) {
-        gap: 24px;
+        > * + * {
+          margin-top: 0;
+          margin-left: 16px;
+        }
+      }
+
+      @media (min-width: $desktop-breakpoint) {
+        > * + * {
+          margin-left: 24px;
+        }
       }
     }
   }
+}
 </style>

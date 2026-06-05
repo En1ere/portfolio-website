@@ -38,83 +38,96 @@ defineExpose({
 </template>
 
 <style scoped lang="scss">
-  .skills-wrapper {
+.skills-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 64px;
+  background: var(--skills-background);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--skills-background-filter);
+    z-index: 0;
+    backdrop-filter: blur(3px);
+  }
+
+  & > * {
     position: relative;
-    overflow: hidden;
-    padding: 64px;
-    background: var(--skills-background);
+    z-index: 1;
+  }
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    position: relative;
+    font-size: $l;
+    color: var(--color-brand);
+    padding-bottom: 16px;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
-      inset: 0;
-      background: var(--skills-background-filter);
-      z-index: 0;
-      backdrop-filter: blur(3px);
-    }
+      left: 0;
+      bottom: 0;
+      width: 160px;
+      height: 2px;
+      background: var(--color-brand);
 
-    & > * {
-      position: relative;
-      z-index: 1;
-    }
-  }
-
-  .skills {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    &__title {
-      position: relative;
-      font-size: $l;
-      color: var(--color-brand);
-      padding-bottom: 16px;
-
-      &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 160px;
-        height: 2px;
-        background: var(--color-brand);
-
-        [lang^='ru'] & {
-          width: 268px;
-        }
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -5px;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: var(--color-brand);
-        box-shadow: 148px 0 0 var(--color-brand);
-
-        [lang^='ru'] & {
-          box-shadow: 256px 0 0 var(--color-brand);
-        }
+      [lang^='ru'] & {
+        width: 268px;
       }
     }
 
-    &__subtitle {
-      margin: 32px 0 64px;
-      text-align: center;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-brand);
+      box-shadow: 148px 0 0 var(--color-brand);
+
+      [lang^='ru'] & {
+        box-shadow: 256px 0 0 var(--color-brand);
+      }
     }
   }
 
-  .blocks-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
+  &__subtitle {
+    margin: 32px 0 64px;
+    text-align: center;
+  }
+}
+
+.blocks-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  @media (min-width: $tablet-breakpoint) {
+    flex-direction: row;
+  }
+
+  @supports not (gap: 24px) {
+    > * + * {
+      margin-top: 24px;
+    }
 
     @media (min-width: $tablet-breakpoint) {
-      flex-direction: row;
+      > * + * {
+        margin-top: 0;
+        margin-left: 24px;
+      }
     }
   }
+}
 </style>

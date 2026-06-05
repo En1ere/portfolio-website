@@ -92,44 +92,52 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped lang="scss">
-  .scroll-navigation {
-    position: fixed;
-    width: 64px;
-    border-radius: 40px;
-    border: 0;
-    padding: 8px 12px;
-    gap: 24px;
-    z-index: 1;
-    display: none;
-    box-shadow: var(--default-shadow);
+.scroll-navigation {
+  position: fixed;
+  width: 64px;
+  border-radius: 40px;
+  border: 0;
+  padding: 8px 12px;
+  gap: 24px;
+  z-index: 1;
+  display: none;
+  box-shadow: var(--default-shadow);
 
+  @media (min-width: $tablet-breakpoint) {
+    top: 116px;
+    left: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    top: 243px;
+    left: 64px;
+  }
+
+  @supports not (gap: 24px) {
     @media (min-width: $tablet-breakpoint) {
-      top: 116px;
-      left: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    @media (min-width: $desktop-breakpoint) {
-      top: 243px;
-      left: 64px;
-    }
-
-    &__button {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      border-radius: 50%;
-      background: transparent;
-      transition: all 0.2s;
-
-      &.active {
-        background: var(--color-bg-invert);
+      > * + * {
+        margin-top: 24px;
       }
     }
   }
+
+  &__button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+    background: transparent;
+    transition: all 0.2s;
+
+    &.active {
+      background: var(--color-bg-invert);
+    }
+  }
+}
 </style>

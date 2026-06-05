@@ -51,91 +51,97 @@
 </template>
 
 <style scoped lang="scss">
-  .about-wrapper {
-    background: var(--about-background);
-    padding: 0 22px;
+.about-wrapper {
+  background: var(--about-background);
+  padding: 0 22px;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64px 0;
+
+  & h1 {
+    width: min-content;
+    font-size: $s;
+    background: var(--color-bg);
+    border: 4px solid var(--color-brand);
+    border-radius: 40px 0;
+    white-space: nowrap;
+    padding: 16px 40px;
+
+    @media (min-width: $tablet-breakpoint) {
+      font-size: $l;
+    }
   }
 
-  .about {
+  & p {
+    position: relative;
+    margin: 32px 0 0;
+    background: var(--color-bg);
+    border-radius: 40px;
+    padding: 58px 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 64px 0;
+    gap: 20px;
 
-    & h1 {
-      width: min-content;
-      font-size: $s;
-      background: var(--color-bg);
-      border: 4px solid var(--color-brand);
-      border-radius: 40px 0;
-      white-space: nowrap;
-      padding: 16px 40px;
-
-      @media (min-width: $tablet-breakpoint) {
-        font-size: $l;
-      }
-    }
-
-    & p {
-      position: relative;
-      margin: 32px 0 0;
-      background: var(--color-bg);
-      border-radius: 40px;
-      padding: 58px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-
-      @media (min-width: $tablet-breakpoint) {
-        max-width: 620px;
-        margin: 64px 0 0;
-      }
-
-      @media (min-width: $desktop-breakpoint) {
-        max-width: 880px;
-      }
-
-      &::before {
-        content: '<p>';
-        position: absolute;
-        color: var(--color-brand-second);
-        font-size: $xs;
-        top: 24px;
-        left: 24px;
-      }
-
-      &::after {
-        content: '</p>';
-        position: absolute;
-        color: var(--color-brand-second);
-        font-size: $xs;
-        bottom: 24px;
-        left: 24px;
-      }
-    }
-
-    & img {
-      border-radius: 40px;
-      border: 0;
-      overflow: hidden;
+    @media (min-width: $tablet-breakpoint) {
+      max-width: 620px;
       margin: 64px 0 0;
-      max-width: 272px;
+    }
 
-      @media (min-width: $tablet-breakpoint) {
-        max-width: 462px;
-      }
+    @media (min-width: $desktop-breakpoint) {
+      max-width: 880px;
+    }
 
-      @media (min-width: $desktop-breakpoint) {
-        margin: 128px 0 0;
+    @supports not (gap: 20px) {
+      > * + * {
+        margin-top: 20px;
       }
     }
 
-    & .greetings {
-      font-size: $s;
+    &::before {
+      content: '<p>';
+      position: absolute;
+      color: var(--color-brand-second);
+      font-size: $xs;
+      top: 24px;
+      left: 24px;
+    }
+
+    &::after {
+      content: '</p>';
+      position: absolute;
+      color: var(--color-brand-second);
+      font-size: $xs;
+      bottom: 24px;
+      left: 24px;
     }
   }
 
-  .highlight {
-    color: var(--color-brand);
+  & img {
+    border-radius: 40px;
+    border: 0;
+    overflow: hidden;
+    margin: 64px 0 0;
+    max-width: 272px;
+
+    @media (min-width: $tablet-breakpoint) {
+      max-width: 462px;
+    }
+
+    @media (min-width: $desktop-breakpoint) {
+      margin: 128px 0 0;
+    }
   }
+
+  & .greetings {
+    font-size: $s;
+  }
+}
+
+.highlight {
+  color: var(--color-brand);
+}
 </style>
