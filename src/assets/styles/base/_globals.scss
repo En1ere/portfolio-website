@@ -55,6 +55,7 @@ main {
   @media(min-width: $tablet-breakpoint) {
     min-height: calc(100vh - (86px + 161px));
   }
+
   @media(min-width: $desktop-breakpoint) {
     min-height: calc(100vh - (86px + 105px));
   }

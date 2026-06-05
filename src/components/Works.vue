@@ -79,7 +79,10 @@ defineExpose({
             class="slider__button slider__button--prev"
             type="button"
           >
-            <Icon name="IconArrowLeft" hover-color="var(--color-brand-second)" />
+            <Icon
+              name="IconArrowLeft"
+              hover-color="var(--color-brand-second)"
+            />
           </button>
 
           <div class="slider__pagination" />
@@ -88,7 +91,10 @@ defineExpose({
             class="slider__button slider__button--next"
             type="button"
           >
-            <Icon name="IconArrowRight" hover-color="var(--color-brand-second)" />
+            <Icon
+              name="IconArrowRight"
+              hover-color="var(--color-brand-second)"
+            />
           </button>
         </div>
       </div>

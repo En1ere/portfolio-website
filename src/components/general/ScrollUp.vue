@@ -13,7 +13,10 @@ const scrollUp = () => window.scrollTo({
     class="scroll-up-button"
     @click="scrollUp"
   >
-    <Icon name="IconArrowUp" hover-color="var(--color-brand-second)" />
+    <Icon
+      name="IconArrowUp"
+      hover-color="var(--color-brand-second)"
+    />
   </button>
 </template>
 

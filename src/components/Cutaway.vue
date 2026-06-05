@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {type ISocial, socials} from "@/types/constants/socials.ts";
+import { type ISocial, socials } from "@/types/constants/socials.ts";
 import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
 import { tags } from "@/types/constants/tags.ts";
 import { useLocale } from "@/composables/useLocale.ts";

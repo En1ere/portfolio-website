@@ -56,6 +56,7 @@ const { variant = 'primary', size = 'm' } = defineProps<{
     &:hover {
       color: var(--color-brand-second);
     }
+
     &:active {
       color: var(--color-brand);
     }

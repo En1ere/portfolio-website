@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
 import Cutaway from "@/components/Cutaway.vue";
-import Icon from "@/components/UI/icons/Icon.vue";
-import { socials } from "@/types/constants/socials.ts";
+import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
+import { type ISocial, socials } from "@/types/constants/socials.ts";
 import ExperienceStats from "@/components/ExperienceStats.vue";
 import { useLocale } from "@/composables/useLocale.ts";
 import { useTemplateRef } from "vue";
@@ -15,6 +15,7 @@ const rootRef = useTemplateRef<HTMLElement>('rootRef')
 defineExpose({
   rootRef,
 });
+const getIconName = (social: ISocial) => social.icon as IconName
 </script>
 
 <template>
@@ -42,7 +43,12 @@ defineExpose({
               :href="socials.telegram.link"
             >
               <span>{{ t('lets_talk') }}</span>
-              <div class="text-content__invite-icon"><Icon :name="socials.telegram.icon" hover-color="var(--color-brand-second)" /></div>
+              <div class="text-content__invite-icon">
+                <Icon
+                  :name="getIconName(socials.telegram)"
+                  hover-color="var(--color-brand-second)"
+                />
+              </div>
             </a>
           </div>
         </div>

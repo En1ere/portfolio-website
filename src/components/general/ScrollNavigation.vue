@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
-import {blockKeys, blocks, type IBlock, type TBlockTitle} from "@/types/constants/homePage.ts";
+import { blockKeys, blocks, type IBlock, type TBlockTitle } from "@/types/constants/homePage.ts";
 import type { SectionRefsMap } from "@/pages/HomePage.vue";
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 

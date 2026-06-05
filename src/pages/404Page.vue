@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {useLocale} from "@/composables/useLocale.ts";
+import { useLocale } from "@/composables/useLocale.ts";
 import Navigation from "@/components/general/Navigation.vue";
 
 const { t } = useLocale()
@@ -32,10 +32,12 @@ const { t } = useLocale()
       @media (min-width: $tablet-breakpoint) {
         font-size: 140px;
       }
+
       @media (min-width: $desktop-breakpoint) {
         font-size: 200px;
       }
     }
+
     &__subtitle {
       margin: 60px 0 126px;
       font-size: 26px;
@@ -45,6 +47,7 @@ const { t } = useLocale()
         font-size: 50px;
         margin: 60px 0 160px;
       }
+
       @media (min-width: $desktop-breakpoint) {
         font-size: 140px;
         margin: 60px 0 200px;

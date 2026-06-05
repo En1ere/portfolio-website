@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, ref} from 'vue';
+import { computed, ref } from 'vue';
 import IconMail from "@/components/UI/icons/IconMail.vue";
 import IconGeo from "@/components/UI/icons/IconGeo.vue";
 import IconVk from "@/components/UI/icons/IconVk.vue";
@@ -42,7 +42,7 @@ const icons = {
   IconBrackets,
   IconCheck,
   IconSun,
-  IconMoon
+  IconMoon,
 } as const;
 export type IconName = keyof typeof icons
 

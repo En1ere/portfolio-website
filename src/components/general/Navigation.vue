@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
 import { type INavRoute, navItems } from "@/router/routes";
-import {useLocale} from "@/composables/useLocale.ts";
+import { useLocale } from "@/composables/useLocale.ts";
 
 const route = useRoute();
 const { t } = useLocale()
@@ -39,6 +39,7 @@ const isCurrent = (item:INavRoute) => item.path === route.path;
       &:hover {
         color: var(--color-brand-second);
       }
+
       &:active {
         color: var(--color-brand);
       }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { computed } from "vue";
-  import {type ISocial, socials} from "@/types/constants/socials.ts";
-  import Icon, {type IconName} from "@/components/UI/icons/Icon.vue";
+  import { type ISocial, socials } from "@/types/constants/socials.ts";
+  import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
   import UIButton from "@/components/UI/button/UIButton.vue";
   import { useModals } from "@/composables/useModals.ts";
   import { useLocale } from "@/composables/useLocale.ts";

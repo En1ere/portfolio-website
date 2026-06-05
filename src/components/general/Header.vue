@@ -1,9 +1,9 @@
 <script setup lang="ts">
   // import Navigation from "@/components/general/Navigation.vue";
-  import Icon, {type IconName} from "@/components/UI/icons/Icon.vue";
-  import {type ISocial, socials} from "@/types/constants/socials.ts";
+  import Icon, { type IconName } from "@/components/UI/icons/Icon.vue";
+  import { type ISocial, socials } from "@/types/constants/socials.ts";
   import LangSelector from "@/components/general/LangSelector.vue";
-  import {useLocale} from "@/composables/useLocale.ts";
+  import { useLocale } from "@/composables/useLocale.ts";
   import ThemeSwitcher from "@/components/general/ThemeSwitcher.vue";
 
   const { t } = useLocale()
@@ -29,14 +29,20 @@
           target="_blank"
           :href="socials.git.link"
         >
-          <Icon :name="getIconName(socials.git)" hover-color="var(--color-brand-second)" />
+          <Icon
+            :name="getIconName(socials.git)"
+            hover-color="var(--color-brand-second)"
+          />
         </a>
         <a
           class="header__tg"
           target="_blank"
           :href="socials.telegram.link"
         >
-          <Icon :name="getIconName(socials.telegram)" hover-color="var(--color-brand-second)" />
+          <Icon
+            :name="getIconName(socials.telegram)"
+            hover-color="var(--color-brand-second)"
+          />
         </a>
       </div>
     </header>
