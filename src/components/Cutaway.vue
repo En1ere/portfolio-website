@@ -92,9 +92,9 @@ const getIcon = (social: ISocial) => social.icon as IconName
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 4px solid $main-white-color;
+    border: 4px solid var(--color-text);
     border-radius: 100px 0;
-    box-shadow: -4px -4px 3px 0 $brand-color;
+    box-shadow: -4px -4px 3px 0 var(--color-brand);
     padding: 36px 0;
 
     @media (min-width: $tablet-breakpoint) {
@@ -112,18 +112,18 @@ const getIcon = (social: ISocial) => social.icon as IconName
       width: 96px;
       height: 96px;
       border-radius: 50%;
-      border: 3px solid $brand-color;
+      border: 3px solid var(--color-brand);
       margin: 0 0 16px;
       overflow: hidden;
     }
 
     &__name {
       font-family: Ubuntu-Medium, sans-serif;
-      font-size: $h2-u;
+      font-size: $m;
     }
 
     &__position {
-      font-size: $para-u;
+      font-size: $xs;
       margin: 16px 0 0;
     }
   }
@@ -149,10 +149,10 @@ const getIcon = (social: ISocial) => social.icon as IconName
     gap: 8px;
 
     &__item {
-      color: $color-bg;
-      background: $brand-color;
+      color: var(--color-text-invert);
+      background: var(--color-brand);
       padding: 0 16px;
-      font-size: $para-u;
+      font-size: $xs;
       height: 36px;
       display: flex;
       align-items: center;
@@ -170,16 +170,16 @@ const getIcon = (social: ISocial) => social.icon as IconName
       align-items: center;
       justify-content: center;
       gap: 16px;
-      background: $main-white-color;
+      background: var(--color-text);
       border-radius: 32px;
       height: 56px;
-      color: $color-bg;
+      color: var(--color-text-invert);
       white-space: nowrap;
       padding: 0 32px;
       transition: all 0.2s;
 
       &:hover {
-        background: $brand-color-second;
+        background: var(--color-brand-second);
       }
 
       & svg {

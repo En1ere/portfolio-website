@@ -83,8 +83,8 @@ onBeforeUnmount(() => {
       @click="clickHandler(blockKey)"
     >
       <Icon
-        :color="isActive(blockKey) ? '#292F36' : '#FFFFFF'"
-        :hover-color="isActive(blockKey) ? '' : '#98FAEC'"
+        :color="isActive(blockKey) ? 'var(--color-text-invert)' : 'var(--color-text)'"
+        :hover-color="isActive(blockKey) ? '' : 'var(--color-brand-second)'"
         :name="getIconName(block)"
       />
     </button>
@@ -128,7 +128,7 @@ onBeforeUnmount(() => {
       transition: all 0.2s;
 
       &.active {
-        background: #FFF;
+        background: var(--color-bg-invert);
       }
     }
   }

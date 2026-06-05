@@ -124,7 +124,7 @@ onBeforeUnmount(() => {
 .list-wrapper {
   position: absolute;
   top: 55px;
-  background: #FFF;
+  background: var(--color-bg-invert);
   border-radius: 24px;
   border: 0;
   width: 100%;
@@ -158,10 +158,10 @@ onBeforeUnmount(() => {
   width: 100%;
   min-height: 40px;
   padding: 4px 16px;
-  border: 1px solid $color-bg;
+  border: 1px solid var(--color-text-invert);
   border-radius: 24px;
-  background: #FFF;
-  color: $color-bg;
+  background: var(--color-bg-invert);
+  color: var(--color-text-invert);
   display: flex;
   align-items: center;
 
@@ -171,13 +171,13 @@ onBeforeUnmount(() => {
   }
 
   &__option {
-    color: $color-bg;
+    color: var(--color-text);
     padding: 8px 16px;
     transition: all 0.2s;
 
     &:hover {
-      background: $color-bg;
-      color: $main-white-color;
+      background: var(--color-text);
+      color: var(--color-text-hover);
     }
   }
 
@@ -186,7 +186,6 @@ onBeforeUnmount(() => {
     top: 50%;
     right: 12px;
     transform: translateY(-50%);
-    color: #667085;
     pointer-events: none;
     height: 20px;
     width: 20px;

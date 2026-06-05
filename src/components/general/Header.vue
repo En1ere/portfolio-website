@@ -1,11 +1,14 @@
 <script setup lang="ts">
   // import Navigation from "@/components/general/Navigation.vue";
-  import Icon from "@/components/UI/icons/Icon.vue";
-  import { socials } from "@/types/constants/socials.ts";
+  import Icon, {type IconName} from "@/components/UI/icons/Icon.vue";
+  import {type ISocial, socials} from "@/types/constants/socials.ts";
   import LangSelector from "@/components/general/LangSelector.vue";
   import {useLocale} from "@/composables/useLocale.ts";
+  import ThemeSwitcher from "@/components/general/ThemeSwitcher.vue";
 
   const { t } = useLocale()
+
+  const getIconName = (social: ISocial) => social.icon as IconName
 </script>
 
 <template>
@@ -16,6 +19,8 @@
           {{ t('name_full') }}
         </RouterLink>
       </div>
+
+      <ThemeSwitcher />
       <div class="header__nav">
         <!--        <Navigation />-->
         <LangSelector />
@@ -24,14 +29,14 @@
           target="_blank"
           :href="socials.git.link"
         >
-          <Icon :name="socials.git.icon" :hover-color="'#98FAEC'" />
+          <Icon :name="getIconName(socials.git)" hover-color="var(--color-brand-second)" />
         </a>
         <a
           class="header__tg"
           target="_blank"
           :href="socials.telegram.link"
         >
-          <Icon :name="socials.telegram.icon" :hover-color="'#98FAEC'" />
+          <Icon :name="getIconName(socials.telegram)" hover-color="var(--color-brand-second)" />
         </a>
       </div>
     </header>
@@ -69,10 +74,10 @@
     }
 
     &__logo {
-      color: $brand-color;
+      color: var(--color-brand);
 
       @media (min-width: $tablet-breakpoint) {
-        font-size: $article-u;
+        font-size: $s;
       }
     }
 

@@ -45,9 +45,10 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 32px;
-    background: #FFF;
+    height: 40px;
+    background: var(--color-bg-invert);
     border-radius: 24px;
+    border: 1px solid var(--color-text);
     overflow: hidden;
     padding: 0 16px 0 0;
   }
@@ -56,7 +57,7 @@
     height: 100%;
     width: 100%;
     padding: 4px 16px;
-    color: $color-bg;
+    color: var(--color-text);
   }
 
   .input-icon {

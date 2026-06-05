@@ -2,7 +2,7 @@
 const { color } = defineProps({
   color: {
     type: String,
-    default: "#12F7D6",
+    default: "var(--color-brand)",
   },
 })
 </script>

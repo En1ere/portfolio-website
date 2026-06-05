@@ -2,7 +2,7 @@
   const { color } = defineProps({
     color: {
       type: String,
-      default: "#12F7D6",
+      default: "var(--color-brand)",
     },
   })
 </script>
@@ -12,7 +12,6 @@
     width="22"
     height="18"
     viewBox="0 0 22 18"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path

@@ -107,7 +107,7 @@ watch(isAnyModalOpen, (isOpen) => {
 
   &__dialog {
     overflow: auto;
-    color: #f5f5f5;
+    color: var(--color-modal);
     max-height: 75vh;
     padding: 0 12px 0 0;
   }
@@ -141,7 +141,7 @@ watch(isAnyModalOpen, (isOpen) => {
   border-radius: 40px;
   border: 0;
   box-shadow: 0 20px 60px rgb(0 0 0 / 35%);
-  background: $color-bg;
+  background: var(--color-bg);
 }
 
 .modal-fade-enter-active,

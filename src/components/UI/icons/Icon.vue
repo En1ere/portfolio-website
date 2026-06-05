@@ -18,6 +18,8 @@ import IconSquares from "@/components/UI/icons/IconSquares.vue";
 import IconProfile from "@/components/UI/icons/IconProfile.vue";
 import IconBrackets from "@/components/UI/icons/IconBrackets.vue";
 import IconCheck from "@/components/UI/icons/IconCheck.vue";
+import IconSun from "@/components/UI/icons/IconSun.vue";
+import IconMoon from "@/components/UI/icons/IconMoon.vue";
 import type { TClassValue } from "@/types/style.ts";
 
 const icons = {
@@ -39,6 +41,8 @@ const icons = {
   IconProfile,
   IconBrackets,
   IconCheck,
+  IconSun,
+  IconMoon
 } as const;
 export type IconName = keyof typeof icons
 

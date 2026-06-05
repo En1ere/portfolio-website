@@ -27,7 +27,7 @@ const { t } = useLocale()
 
     &__code {
       font-size: 140px;
-      color: $brand-color;
+      color: var(--color-brand);
 
       @media (min-width: $tablet-breakpoint) {
         font-size: 140px;

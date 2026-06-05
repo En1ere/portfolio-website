@@ -29,7 +29,7 @@ const isCurrent = (item:INavRoute) => item.path === route.path;
     font-size: 16px;
 
     @media (min-width: $tablet-breakpoint) {
-      font-size: $article-u;
+      font-size: $s;
       gap: 16px;
     }
 
@@ -37,14 +37,14 @@ const isCurrent = (item:INavRoute) => item.path === route.path;
       transition: all 0.2s;
 
       &:hover {
-        color: $brand-color-second;
+        color: var(--color-brand-second);
       }
       &:active {
-        color: $brand-color;
+        color: var(--color-brand);
       }
 
       &.active {
-        color: $brand-color;
+        color: var(--color-brand);
       }
     }
   }
