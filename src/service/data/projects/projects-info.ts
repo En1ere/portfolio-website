@@ -7,11 +7,11 @@ import {
 export const projects: IProject[] = [
   {
     id: 1,
-    name: "Tamagochi",
-    key: "tamagochi",
+    name: "Tamagotchi",
+    key: "tamagotchi",
     status: EProjectStatus.inQueue,
     category: EProjectCategory.game,
-    description: "project.tamagochi_description",
+    description: "project.tamagotchi_description",
     image: "",
   },
   {

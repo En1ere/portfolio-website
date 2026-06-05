@@ -30,6 +30,15 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/projects/:slug',
+    name: 'project',
+    component: () => import('@/pages/ProjectPage.vue'),
+    props: true,
+    meta: {
+      showInNav: false,
+    },
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "not-found",
     component: () => import("@/pages/404Page.vue"),

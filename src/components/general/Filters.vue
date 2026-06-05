@@ -61,7 +61,6 @@ import { EProjectCategoriesFilter, EProjectStatusesFilter, type FiltersState } f
 
 <style scoped lang="scss">
 .filters {
-  padding: 24px;
   width: 100%;
   display: flex;
   flex-direction: column;

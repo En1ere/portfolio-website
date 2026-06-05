@@ -19,6 +19,7 @@
 
   // other
   --default-shadow: 0 0 10px 0 #ffffffc4;
+  --brand-shadow: 0 0 10px 0 #12f7d6c4;
 
   // elements
   --about-background: url("@/assets/img/about/about_background.png") center top;
@@ -28,6 +29,9 @@
   --icon-pointer: url("@/assets/img/icons/icon-mouse-pointer.svg");
   --slider-control-background: var(--color-bg);
   --slider-control-stroke: var(--color-brand);
+
+  // projects
+  --project-image-plug: url("@/assets/img/projects/general/project-background-dark.png") center / cover;
 }
 
 html[data-theme='light'] {
@@ -49,6 +53,7 @@ html[data-theme='light'] {
 
   // other
   --default-shadow: 0 0 10px 0 #00000034;
+  --brand-shadow: 0 0 10px 0 #4BAEF2c4;
 
   // elements
   --about-background: url("@/assets/img/about/about_background_light.png") center top;
@@ -58,4 +63,7 @@ html[data-theme='light'] {
   --icon-pointer: url("@/assets/img/icons/icon-mouse-pointer-light.svg");
   --slider-control-background: var(--color-brand);
   --slider-control-stroke: var(--color-bg);
+
+  // projects
+  --project-image-plug: url("@/assets/img/projects/general/project-background-light.png") center top cover;
 }
