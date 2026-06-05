@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
 import { type INavRoute, navItems } from "@/router/routes";
+import {useLocale} from "@/composables/useLocale.ts";
 
 const route = useRoute();
+const { t } = useLocale()
 
 const isCurrent = (item:INavRoute) => item.path === route.path;
 </script>
@@ -15,7 +17,7 @@ const isCurrent = (item:INavRoute) => item.path === route.path;
       :to="item.path"
       :class="['navigation__item', { active: isCurrent(item) }]"
     >
-      {{ $t(item.label) }}
+      {{ t(item.label) }}
     </RouterLink>
   </nav>
 </template>
@@ -33,6 +35,13 @@ const isCurrent = (item:INavRoute) => item.path === route.path;
 
     &__item {
       transition: all 0.2s;
+
+      &:hover {
+        color: $brand-color-second;
+      }
+      &:active {
+        color: $brand-color;
+      }
 
       &.active {
         color: $brand-color;
