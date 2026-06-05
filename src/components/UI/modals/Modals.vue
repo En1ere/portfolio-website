@@ -107,7 +107,8 @@ watch(isAnyModalOpen, (isOpen) => {
 
   &__dialog {
     overflow: auto;
-    color: var(--color-modal);
+    color: var(--color-text);
+    background: var(--color-bg);
     max-height: 75vh;
     padding: 0 12px 0 0;
   }
