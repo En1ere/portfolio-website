@@ -3,7 +3,7 @@ import App from './App.vue'
 import "./assets/styles/main.scss";
 import router from "./router";
 import { i18n } from '@/plugins/i18n';
-import {detectFlexGap} from "@/service/layoutSupport";
+import { detectFlexGap } from "@/service/layoutSupport";
 
 detectFlexGap();
 
