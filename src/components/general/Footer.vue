@@ -93,7 +93,8 @@
   }
 
   &__social-item {
-    width: 32px;min-width: 32px;
+    width: 32px;
+    min-width: 32px;
     height: 32px;
     min-height: 32px;
     background: var(--color-brand-second);
