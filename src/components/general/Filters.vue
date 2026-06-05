@@ -80,25 +80,6 @@ import { EProjectCategoriesFilter, EProjectStatusesFilter, type FiltersState } f
     gap: 24px;
   }
 
-  @supports not (gap: 8px) {
-    > * + * {
-      margin-top: 8px;
-    }
-
-    @media (min-width: $desktop-breakpoint) {
-      > * + * {
-        margin-top: 0;
-        margin-left: 16px;
-      }
-    }
-
-    @media (min-width: $desktop-breakpoint) {
-      > * + * {
-        margin-left: 24px;
-      }
-    }
-  }
-
   &__selectors {
     display: flex;
     flex-direction: column;
@@ -114,8 +95,29 @@ import { EProjectCategoriesFilter, EProjectStatusesFilter, type FiltersState } f
     @media (min-width: $desktop-breakpoint) {
       gap: 24px;
     }
+  }
+}
 
-    @supports not (gap: 8px) {
+.no-flex-gap {
+  .filters {
+    > * + * {
+      margin-top: 8px;
+    }
+
+    @media (min-width: $tablet-breakpoint) {
+      > * + * {
+        margin-top: 0;
+        margin-left: 16px;
+      }
+    }
+
+    @media (min-width: $desktop-breakpoint) {
+      > * + * {
+        margin-left: 24px;
+      }
+    }
+
+    &__selectors {
       > * + * {
         margin-top: 8px;
       }

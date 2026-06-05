@@ -95,12 +95,6 @@
       max-width: 880px;
     }
 
-    @supports not (gap: 20px) {
-      > * + * {
-        margin-top: 20px;
-      }
-    }
-
     &::before {
       content: '<p>';
       position: absolute;
@@ -138,6 +132,16 @@
 
   & .greetings {
     font-size: $s;
+  }
+}
+
+.no-flex-gap {
+  .about {
+    & p {
+      > * + * {
+        margin-top: 20px;
+      }
+    }
   }
 }
 

@@ -34,18 +34,6 @@ const isCurrent = (item:INavRoute) => item.path === route.path;
     gap: 16px;
   }
 
-  @supports not (gap: 8px) {
-    > * + * {
-      margin-left: 8px;
-    }
-
-    @media (min-width: $tablet-breakpoint) {
-      > * + * {
-        margin-left: 16px;
-      }
-    }
-  }
-
   &__item {
     transition: all 0.2s;
 
@@ -59,6 +47,20 @@ const isCurrent = (item:INavRoute) => item.path === route.path;
 
     &.active {
       color: var(--color-brand);
+    }
+  }
+}
+
+.no-flex-gap {
+  .navigation {
+    > * + * {
+      margin-left: 8px;
+    }
+
+    @media (min-width: $tablet-breakpoint) {
+      > * + * {
+        margin-left: 16px;
+      }
     }
   }
 }

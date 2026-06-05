@@ -116,14 +116,6 @@ onBeforeUnmount(() => {
     left: 64px;
   }
 
-  @supports not (gap: 24px) {
-    @media (min-width: $tablet-breakpoint) {
-      > * + * {
-        margin-top: 24px;
-      }
-    }
-  }
-
   &__button {
     width: 40px;
     height: 40px;
@@ -137,6 +129,16 @@ onBeforeUnmount(() => {
 
     &.active {
       background: var(--color-bg-invert);
+    }
+  }
+}
+
+.no-flex-gap {
+  .scroll-navigation {
+    @media (min-width: $tablet-breakpoint) {
+      > * + * {
+        margin-top: 24px;
+      }
     }
   }
 }

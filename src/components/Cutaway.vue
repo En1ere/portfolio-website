@@ -134,12 +134,6 @@ const getIcon = (social: ISocial) => social.icon as IconName
   flex-direction: column;
   gap: 8px;
 
-  @supports not (gap: 8px) {
-    > * + * {
-      margin-top: 8px;
-    }
-  }
-
   &__icon {
     width: 16px;
     height: 14px;
@@ -153,14 +147,6 @@ const getIcon = (social: ISocial) => social.icon as IconName
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-
-  @supports not (gap: 8px) {
-    margin: 24px 0 0 -8px;
-
-    > * {
-      margin: 8px 0 0 8px;
-    }
-  }
 
   &__item {
     color: var(--color-text-invert);
@@ -192,12 +178,6 @@ const getIcon = (social: ISocial) => social.icon as IconName
     padding: 0 32px;
     transition: all 0.2s;
 
-    @supports not (gap: 16px) {
-      > * + * {
-        margin-left: 16px;
-      }
-    }
-
     &:hover {
       background: var(--color-brand-second);
     }
@@ -205,6 +185,30 @@ const getIcon = (social: ISocial) => social.icon as IconName
     & svg {
       width: 20px;
       height: 20px;
+    }
+  }
+}
+
+.no-flex-gap {
+  .socials {
+    > * + * {
+      margin-top: 8px;
+    }
+  }
+
+  .tags {
+    margin: 24px 0 0 -8px;
+
+    > * {
+      margin: 8px 0 0 8px;
+    }
+  }
+
+  .download {
+    &__button {
+      > * + * {
+        margin-left: 16px;
+      }
     }
   }
 }

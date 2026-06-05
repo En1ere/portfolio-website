@@ -68,19 +68,6 @@
   @media (min-width: $tablet-breakpoint) {
     flex-direction: row;
   }
-
-  @supports not (gap: 8px) {
-    > * + * {
-      margin-top: 8px;
-    }
-
-    @media (min-width: $tablet-breakpoint) {
-      > * + * {
-        margin-top: 0;
-        margin-left: 8px;
-      }
-    }
-  }
 }
 
 .header {
@@ -101,24 +88,6 @@
 
     @media (min-width: $desktop-breakpoint) {
       gap: 24px;
-    }
-
-    @supports not (gap: 8px) {
-      > * + * {
-        margin-left: 8px;
-      }
-
-      @media (min-width: $tablet-breakpoint) {
-        > * + * {
-          margin-left: 16px;
-        }
-      }
-
-      @media (min-width: $desktop-breakpoint) {
-        > * + * {
-          margin-left: 24px;
-        }
-      }
     }
   }
 
@@ -152,6 +121,41 @@
     @media (min-width: $tablet-breakpoint) {
       width: 30px;
       height: 30px;
+    }
+  }
+}
+
+.no-flex-gap {
+  .container {
+    > * + * {
+      margin-top: 8px;
+    }
+
+    @media (min-width: $tablet-breakpoint) {
+      > * + * {
+        margin-top: 0;
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .header {
+    &__nav {
+      > * + * {
+        margin-left: 8px;
+      }
+
+      @media (min-width: $tablet-breakpoint) {
+        > * + * {
+          margin-left: 16px;
+        }
+      }
+
+      @media (min-width: $desktop-breakpoint) {
+        > * + * {
+          margin-left: 24px;
+        }
+      }
     }
   }
 }

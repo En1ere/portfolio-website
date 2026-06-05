@@ -116,8 +116,10 @@ defineExpose({
   @media (min-width: $tablet-breakpoint) {
     flex-direction: row;
   }
+}
 
-  @supports not (gap: 24px) {
+.no-flex-gap {
+  .blocks-wrapper {
     > * + * {
       margin-top: 24px;
     }

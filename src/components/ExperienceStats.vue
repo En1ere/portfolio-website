@@ -49,12 +49,6 @@
   flex-direction: column;
   gap: 48px;
 
-  @supports not (gap: 48px) {
-    > * + * {
-      margin-top: 48px;
-    }
-  }
-
   &__item {
     display: flex;
     align-items: center;
@@ -68,6 +62,14 @@
       width: 42px;
       margin: 0 16px 0 0;
       text-align: right;
+    }
+  }
+}
+
+.no-flex-gap {
+  .experience {
+    > * + * {
+      margin-top: 48px;
     }
   }
 }
