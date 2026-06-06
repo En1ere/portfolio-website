@@ -31,8 +31,11 @@ import { computed, onMounted } from "vue";
       <h1 class="project__title">
         {{ project?.name }}
       </h1>
-      <div class="content">
-
+      <div class="project__content">
+        <div class="game">
+          <button class="game__setting-button">фулскрин</button>
+          <button class="game__setting-button">настройки</button>
+        </div>
       </div>
     </div>
   </section>
@@ -56,5 +59,17 @@ import { computed, onMounted } from "vue";
       color: var(--color-brand);
       font-size: $m;
     }
+
+  }
+
+  .game {
+    margin: 24px 0 0;
+    width: 1280px;
+    height: 920px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border: 5px solid var(--color-brand);
+
   }
 </style>

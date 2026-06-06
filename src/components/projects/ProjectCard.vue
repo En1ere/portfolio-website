@@ -36,6 +36,10 @@
     cursor: pointer;
     transition: all 0.3s;
 
+    [lang^="ru"] & {
+      border: 1px solid var(--color-brand);
+    }
+
     @media (min-width: $tablet-breakpoint) {
       max-width: 450px;
       width: 450px;
@@ -65,8 +69,6 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
-      border: 1px solid var(--color-brand);
-      border-top: 0;
     }
 
     &__title {
