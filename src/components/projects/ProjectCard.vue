@@ -11,6 +11,11 @@
     :to="`/projects/${project.key}`"
   >
     <div class="project-card__image">
+      <img
+        v-if="project.image"
+        :src="project.image"
+        alt=""
+      >
     </div>
     <div class="project-card__text-block">
       <p class="project-card__title">

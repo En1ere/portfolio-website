@@ -3,6 +3,7 @@ import { computed, onMounted } from "vue";
   import type { IProject } from "@/types/project.ts";
   import { useRoute } from "vue-router";
   import { projects } from "@/service/data/projects/projects-info.ts";
+  import { initGame } from "@/projects/tamagochi/game";
 
   const route = useRoute()
 
@@ -11,17 +12,19 @@ import { computed, onMounted } from "vue";
       return item.key === route.params.slug
     }),
   )
-  const initProject = () => {
+  const initProject = async () => {
     const p = project.value;
-    if(!p) {
-      console.error("Cannot initialize project")
-      return;
+    try {
+      console.warn("Initializing...", p?.name)
+      await initGame()
     }
-    console.warn("Initializing...", p?.name)
+    catch(err) {
+      console.error(`Cannot initialize project: ${err}`)
+    }
   }
 
-  onMounted(() => {
-    initProject();
+  onMounted(async() => {
+    await initProject();
   })
 </script>
 
@@ -33,8 +36,14 @@ import { computed, onMounted } from "vue";
       </h1>
       <div class="project__content">
         <div class="game">
-          <button class="game__setting-button">фулскрин</button>
-          <button class="game__setting-button">настройки</button>
+          <div class="game__settings">
+            <!--todo-->
+            <button class="game__settings-button">фулскрин</button>
+            <button class="game__settings-button">настройки</button>
+          </div>
+          <canvas id="project-canvas">
+
+          </canvas>
         </div>
       </div>
     </div>
@@ -64,12 +73,27 @@ import { computed, onMounted } from "vue";
 
   .game {
     margin: 24px 0 0;
-    width: 1280px;
-    height: 920px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-    border: 5px solid var(--color-brand);
+    position: relative;
 
+    // width: 1440px;
+    // height: 920px;
+
+    &__settings {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      // display: flex;
+      // flex-direction: column;
+      // align-items: flex-end;
+      display: none;
+    }
+  }
+
+  #project-canvas {
+    border: 2px solid var(--color-brand);
   }
 </style>
