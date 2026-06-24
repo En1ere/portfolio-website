@@ -30,7 +30,7 @@
           {{ t('my_name_is') }}
           {{ t('name') }}
           {{ t('about_spec') }}
-          <span class="highlight">HTML</span>, <span class="highlight">CSS</span>, <span class="highlight">JS</span>, <span class="highlight">TS</span>, <span class="highlight">Vue</span> etc.
+          <span class="highlight">JS</span>, <span class="highlight">TS</span>, <span class="highlight">Vue</span>, <span class="highlight">React</span>,  etc.
         </span>
         <span>
           {{ t('about_pers') }}

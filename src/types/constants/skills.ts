@@ -3,7 +3,7 @@ export const skills = {
     id: 1,
     icon: "IconPC",
     title: "Frontend dev",
-    items: ["HTML", "CSS", "JS", "TS", "Vue"],
+    items: ["TS", "Vue", "React", "Nuxt", "Next"],
   },
   backend: {
     id: 2,
