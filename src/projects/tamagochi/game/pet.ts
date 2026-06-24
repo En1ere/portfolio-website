@@ -82,7 +82,7 @@ export class Pet {
     this.changeStat('hunger',  -PET_DECAY.hunger * deltaTime);
     this.changeStat('energy', -PET_DECAY.energy * deltaTime);
     this.changeStat('hygiene', -PET_DECAY.hygiene * deltaTime);
-    this.changeStat('mood',   -PET_DECAY.mood * deltaTime);
+    this.changeStat('mood',   -PET_DECAY.mood * deltaTime * (hungerMultiplier + 1));
     this.changeStat('health',   -PET_DECAY.health * deltaTime * hungerMultiplier);
   }
 
@@ -125,14 +125,14 @@ export class Pet {
     // context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height, 116, 116, this.x, this.y, 400, 400)
     context.strokeRect(this.coords.x, this.coords.y, this.coords.width, this.coords.height)
     context.font = 'bold 40px sans-serif';
-    context.fillText(this.currentState.constructor.name, (this.coords.x + this.coords.x / 2 - 180), (this.coords.y + this.coords.y / 2))
+    context.fillText(this.currentState.constructor.name, (this.coords.x + 10), (this.coords.y + this.coords.y / 2))
     console.warn(deltaTime)
 
     const statsStr = (Object.keys(this.stats) as Array<keyof IPetStats>).reduce((pvStat: string[], currentStat: keyof IPetStats) => {
       return [...pvStat, `${currentStat}: ${Math.round(this.stats[currentStat])}`]
     }, [] as string[])
     statsStr.forEach((str, idx) => {
-      context.font = 'bold 12px sans-serif';
+      context.font = 'bold 14px sans-serif';
       context.fillText(str, (this.coords.x + 10), (this.coords.y + this.coords.y / 2 + 40 + (idx * 14)))
     })
   }
